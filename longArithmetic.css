@@ -1,0 +1,21 @@
+body
+{
+    font-family: monospace;
+}
+
+.sum
+{
+    width: 8em;
+    font-size: 30px;
+}
+
+.row
+{
+    width: 100%;
+    text-align: right;
+}
+
+.bottomRow
+{
+    border-bottom: black 1px solid;
+}
