@@ -7,6 +7,9 @@ body
 {
     width: 8em;
     font-size: 30px;
+    padding-bottom: 3em;
+    margin-right: 2em;
+    display: inline-block;
 }
 
 .row
