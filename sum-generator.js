@@ -16,7 +16,22 @@ window.longArithmetic.SumGenerator = (function() {
         };
         
         function getSum() {
-            return { operand1: 1234567890, operand2: 8765432109, operator: '+' };
+            var operand1 = '';
+            var operand2 = '';
+            
+            for (var i = 0; i < 10; i++) {
+                var digit1 = Math.floor(Math.random() * 10);
+                var digit2 = getRandomIntBetween(0, 9-digit1);
+                
+                operand1 += digit1;
+                operand2 += digit2;
+            }
+            
+            return { operand1: operand1, operand2: operand2, operator: '+' };
+        }
+        
+        function getRandomIntBetween(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     };
 })();
