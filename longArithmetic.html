@@ -3,91 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>Long Arithmetic</title>
+        <script src="knockout.js"></script>
+        <script src="sum-generator.js"></script>
+        <script src="addition.js"></script>
         <link rel="stylesheet" type="text/css" href="longArithmetic.css" />
     </head>
 
     <body>
         <h1>Addition</h1>
+        
+        <!-- ko foreach: sums -->
         <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
+            <div class="row" data-bind="text: operand1">1234567890</div>
+            <div class="row bottomRow" data-bind="text: operator + ' ' + operand2">+ 8765432109</div>
         </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
-        <div class="sum">
-            <div class="row">1234567890</div>
-            <div class="row bottomRow">+ 8765432109</div>
-        </div>
+        <!-- /ko -->
+        
+        <script>
+            var sumGenerator = new window.longArithmetic.SumGenerator();
+            var additionViewModel = new window.longArithmetic.viewModels.Addition(sumGenerator);
+            ko.applyBindings(additionViewModel);
+        </script>
     </body>
 
 </html>
