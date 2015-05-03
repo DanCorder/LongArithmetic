@@ -6,6 +6,6 @@ window.longArithmetic.viewModels.Addition = (function(ko) {
     return function(sumGenerator) {
         var self = this;
         
-        self.sums = ko.observableArray(sumGenerator.getSums());
+        self.sums = ko.observableArray(sumGenerator.getSums(20));
     };
 })(ko);
