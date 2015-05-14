@@ -1,0 +1,12 @@
+{
+    "name": "longArithmetic",
+
+    "devDependencies": {
+        "rimraf": "latest"
+    },
+
+     "scripts": {
+        "build": "mkdir dist && cp src/* dist/",
+        "clean": "rimraf dist"
+    }
+}
