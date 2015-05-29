@@ -6,13 +6,15 @@ module LongArithmatic {
         sumGenerator: Sums.SumGenerator;
         constructor(sumGenerator: Sums.SumGenerator) {
             this.sumGenerator = sumGenerator;
-            this.sums = ko.observableArray(this.sumGenerator.getSums(12));
+            this.numberOfSums(12);
+            this.sums(this.sumGenerator.getSums(this.numberOfSums()));
         }
+        
+        public sums = ko.observableArray();
+        public numberOfSums = ko.observable();
         
         public refreshSums() {
-            this.sums(this.sumGenerator.getSums(12));
+            this.sums(this.sumGenerator.getSums(this.numberOfSums()));
         }
-        
-        public sums;
     }
 }
