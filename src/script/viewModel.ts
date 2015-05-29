@@ -10,8 +10,8 @@ module LongArithmatic {
             this.sums(this.sumGenerator.getSums(this.numberOfSums()));
         }
         
-        public sums = ko.observableArray();
-        public numberOfSums = ko.observable();
+        public sums = ko.observableArray<Sums.Sum>();
+        public numberOfSums = ko.observable<number>();
         
         public refreshSums() {
             this.sums(this.sumGenerator.getSums(this.numberOfSums()));
