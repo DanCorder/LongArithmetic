@@ -1,12 +1,16 @@
 {
-    "name": "longArithmetic",
-
-    "devDependencies": {
-        "rimraf": "latest"
-    },
-
-     "scripts": {
-        "build": "mkdir dist && cp src/* dist/",
-        "clean": "rimraf dist"
-    }
+  "name": "longArithmetic",
+  "devDependencies": {
+    "knockout": "^3.3.0",
+    "rimraf": "latest",
+    "typescript": "^1.5.0-beta"
+  },
+  "scripts": {
+    "build:ts": "tsc --out dist/main.js src/script/main.ts",
+    "build:js": "cp node_modules/knockout/build/output/knockout-latest.js dist/knockout.js",
+    "build:html": "cp src/html/* dist/",
+    "build:style": "cp src/style/* dist/",
+    "build": "npm run build:ts && npm run build:js && npm run build:html && npm run build:style",
+    "clean": "rimraf dist"
+  }
 }

@@ -3,9 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Long Arithmetic</title>
-        <script src="knockout.js"></script>
-        <script src="sum-generator.js"></script>
-        <script src="addition.js"></script>
         <link rel="stylesheet" type="text/css" href="longArithmetic.css" />
     </head>
 
@@ -19,11 +16,8 @@
         </div>
         <!-- /ko -->
         
-        <script>
-            var sumGenerator = new window.longArithmetic.SumGenerator();
-            var additionViewModel = new window.longArithmetic.viewModels.Addition(sumGenerator);
-            ko.applyBindings(additionViewModel);
-        </script>
+        <script src="knockout.js"></script>
+        <script src="main.js"></script>
     </body>
 
 </html>
