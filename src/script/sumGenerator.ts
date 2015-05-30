@@ -2,21 +2,21 @@
 
 module Sums {
     export class SumGenerator {
-        getSums(numberOfSums)  {
+        getSums(numberOfSums: number, maxDigits: number)  {
             var sums : Sum[] = [];
             
             for (var i = 0; i < numberOfSums; i++) {
-                sums.push(this.getSum());
+                sums.push(this.getSum(maxDigits));
             }
             
             return sums;
         }
     
-        private getSum() : Sum {
+        private getSum(maxDigits: number) : Sum {
             var operand1: number = 0;
             var operand2: number = 0;
             
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < maxDigits; i++) {
                 var digit1: number = this.getRandomIntBetween(0, 9);
                 var digit2: number = this.getRandomIntBetween(0, 9-digit1);
                 

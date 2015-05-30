@@ -7,14 +7,17 @@ module LongArithmatic {
         constructor(sumGenerator: Sums.SumGenerator) {
             this.sumGenerator = sumGenerator;
             this.numberOfSums(12);
-            this.sums(this.sumGenerator.getSums(this.numberOfSums()));
+            this.maxDigits(10);
+            
+            this.refreshSums();
         }
         
         public sums = ko.observableArray<Sums.Sum>();
         public numberOfSums = ko.observable<number>();
+        public maxDigits = ko.observable<number>();
         
         public refreshSums() {
-            this.sums(this.sumGenerator.getSums(this.numberOfSums()));
+            this.sums(this.sumGenerator.getSums(this.numberOfSums(), this.maxDigits()));
         }
     }
 }
