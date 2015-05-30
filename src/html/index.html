@@ -9,14 +9,14 @@
     <body>
         <h1>Long Arithmetic</h1>
         
-        <div>
+        <div id="options">
             <label for="number-of-sums">Number of sums: </label><input id="number-of-sums" type="text" data-bind="value: numberOfSums" />
             <label for="max-digits">Maximum number of digits:</label><input id="max-digits" type="text" data-bind="value: maxDigits" />
             <label for="allow-carrying">Allow carrying:</label><input id="allow-carrying" type="checkbox" data-bind="checked: allowCarrying" />
             <button title="Generate Sums" onclick="viewModel.refreshSums();" >Generate Sums</button>
         </div>
         
-        <div data-bind="foreach: sums">
+        <div data-bind="foreach: sums" id="sums">
             <div class="sum">
                 <div class="row" data-bind="text: operand1">1234567890</div>
                 <div class="row bottomRow" data-bind="text: operator + ' ' + operand2">+ 8765432109</div>

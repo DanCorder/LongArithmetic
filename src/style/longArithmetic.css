@@ -3,6 +3,13 @@ body
     font-family: monospace;
 }
 
+@media print {
+    #options
+    {
+        display: none;
+    }
+}
+
 .sum
 {
     font-size: 30px;
