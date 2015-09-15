@@ -18,8 +18,13 @@
         
         <div data-bind="foreach: sums" id="sums">
             <div class="sum">
-                <div class="row" data-bind="text: operand1">1234567890</div>
-                <div class="row bottomRow" data-bind="text: operator + ' ' + operand2">+ 8765432109</div>
+                <div class="row">
+                    <!-- ko foreach: operand1 --><!-- ko text: $data --><!-- /ko --><!-- /ko -->
+                </div>
+                <div class="row bottomRow">
+                    <!-- ko text: operator --><!-- /ko -->
+                    <!-- ko foreach: operand2 --><!-- ko text: $data --><!-- /ko --><!-- /ko -->
+                </div>
             </div>
         </div>
         
