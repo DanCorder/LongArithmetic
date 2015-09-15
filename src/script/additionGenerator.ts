@@ -1,7 +1,7 @@
 /// <reference path="sum.ts" />
 
 module Sums {
-    export class SumGenerator {
+    export class AdditionGenerator {
         getSums(numberOfSums: number, maxDigits: number, allowCarrying: boolean)  {
             var sums : Sum[] = [];
             
