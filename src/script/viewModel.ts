@@ -1,10 +1,10 @@
 /// <reference path="typeDefinitions/knockout.d.ts" />
-/// <reference path="additionGenerator.ts" />
+/// <reference path="sumGenerator.ts" />
 
 module LongArithmatic {
     export class ViewModel {
-        sumGenerator: Sums.AdditionGenerator;
-        constructor(sumGenerator: Sums.AdditionGenerator) {
+        sumGenerator: Sums.SumGenerator;
+        constructor(sumGenerator: Sums.SumGenerator) {
             this.sumGenerator = sumGenerator;
             this.numberOfSums(12);
             this.maxDigits(10);
