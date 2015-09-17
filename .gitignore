@@ -3,3 +3,6 @@ node_modules/
 
 # Don't track build output
 dist/
+
+# Ignore compiled tests
+test/script/all.spec.js
