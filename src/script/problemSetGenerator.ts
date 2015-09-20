@@ -1,8 +1,9 @@
 /// <reference path="sum.ts" />
+/// <reference path="operator.ts" />
 
 module Sums {
-    export class SumGenerator {
-        getSums(numberOfSums: number, maxDigits: number, allowCarrying: boolean)  {
+    export class ProblemSetGenerator {
+        getSums(numberOfSums: number, type: Operator, maxDigits: number, allowCarrying: boolean)  {
             var sums : Sum[] = [];
             
             for (var i = 0; i < numberOfSums; i++) {

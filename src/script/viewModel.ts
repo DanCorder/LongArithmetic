@@ -1,11 +1,9 @@
 /// <reference path="typeDefinitions/knockout.d.ts" />
-/// <reference path="sumGenerator.ts" />
+/// <reference path="problemSetGenerator.ts" />
 
 module LongArithmatic {
     export class ViewModel {
-        sumGenerator: Sums.SumGenerator;
-        constructor(sumGenerator: Sums.SumGenerator) {
-            this.sumGenerator = sumGenerator;
+        constructor(private problemSetGenerator: Sums.ProblemSetGenerator) {
             this.numberOfSums(12);
             this.maxDigits(10);
             this.allowCarrying(true);
@@ -19,7 +17,7 @@ module LongArithmatic {
         public allowCarrying = ko.observable<boolean>();
         
         public refreshSums() {
-            this.sums(this.sumGenerator.getSums(this.numberOfSums(), this.maxDigits(), this.allowCarrying()));
+            this.sums(this.problemSetGenerator.getSums(this.numberOfSums(), Sums.Operator.Add, this.maxDigits(), this.allowCarrying()));
         }
     }
 }
