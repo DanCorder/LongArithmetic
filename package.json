@@ -19,7 +19,7 @@
     "test:js": "node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=test/script/jasmine.json",
     
     "clean:dist": "rimraf dist",
-    "clean:test": "rimraf test/script/*.js",
+    "clean:test": "rimraf test/script/*.js && rimraf test/script/*.js.map",
     "clean": "npm run clean:dist && npm run clean:test"
   }
 }
