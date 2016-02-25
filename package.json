@@ -5,7 +5,7 @@
     "jasmine-core": "^2.3.4",
     "knockout": "^3.3.0",
     "rimraf": "latest",
-    "typescript": "^1.5.0-beta"
+    "typescript": "^1.8.2"
   },
   "scripts": {
     "build:ts": "tsc --out dist/main.js src/script/main.ts",
