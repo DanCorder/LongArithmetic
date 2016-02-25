@@ -12,7 +12,7 @@
     "build:js": "cp node_modules/knockout/build/output/knockout-latest.js dist/knockout.js",
     "build:html": "cp src/html/* dist/",
     "build:style": "cp src/style/* dist/",
-    "build:test": "tsc --sourcemap --out test/script/all.spec.js test/script/*.ts",
+    "build:test": "tsc --sourcemap --out test/script/all.spec.js test/script/sums/*.ts",
     "build:all": "npm run build:ts && npm run build:js && npm run build:html && npm run build:style && npm run build:test",
     "build": "npm run build:all && npm run test:js",
 

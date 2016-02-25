@@ -1,5 +1,5 @@
 /// <reference path="typeDefinitions/knockout.d.ts" />
-/// <reference path="problemSetGenerator.ts" />
+/// <reference path="sums/problemSetGenerator.ts" />
 
 module LongArithmatic {
     export class ViewModel {

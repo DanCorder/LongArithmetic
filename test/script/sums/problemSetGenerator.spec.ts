@@ -1,6 +1,6 @@
-/// <reference path="typeDefinitions/jasmine.d.ts" />
-/// <reference path="../../src/script/problemSetGenerator.ts" />
-/// <reference path="../../src/script/operator.ts" />
+/// <reference path="../typeDefinitions/jasmine.d.ts" />
+/// <reference path="../../../src/script/Sums/problemSetGenerator.ts" />
+/// <reference path="../../../src/script/Sums/operator.ts" />
 
 describe("SumGenerator", function() {
     it("generates the correct number of sums", function() {
