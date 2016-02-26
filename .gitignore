@@ -7,3 +7,4 @@ dist/
 # Ignore compiled tests
 test/script/all.spec.js
 *.map
+npm-debug.log
