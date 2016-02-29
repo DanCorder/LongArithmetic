@@ -2,7 +2,7 @@
 /// <reference path="../../../src/script/Sums/problemSetGenerator.ts" />
 /// <reference path="../../../src/script/Sums/operator.ts" />
 
-describe("SumGenerator", function() {
+describe("problemSetGenerator", function() {
     it("generates the correct number of sums", function() {
         var underTest = new Sums.ProblemSetGenerator();
         
@@ -19,7 +19,7 @@ describe("SumGenerator", function() {
         expect(sum.operand1.length).toEqual(5);
         expect(sum.operand2.length).toEqual(5);
     });
-    
+
     it("generates addition sums", function() {
         var underTest = new Sums.ProblemSetGenerator();
         
@@ -49,6 +49,7 @@ describe("SumGenerator", function() {
         for (var i = 0; i < 100; i++) {
             if (sum.operand1[i] + sum.operand2[i] >= 10) {
                 passCaseFound = true;
+                break;
             }
         }
         expect(passCaseFound).toBeTruthy();

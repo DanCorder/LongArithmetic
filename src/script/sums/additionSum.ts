@@ -4,7 +4,7 @@ module Sums {
         
         constructor(maxDigits: number, allowCarrying: boolean) {
             super('+');
-
+            
             this.operand1 = [];
             this.operand2 = [];
             
