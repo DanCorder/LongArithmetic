@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "target": "es5",
+        "sourceMap": true,
+        "outFile": "all.spec.js",
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true
+    }
+}

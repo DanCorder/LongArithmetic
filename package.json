@@ -8,15 +8,16 @@
     "typescript": "^1.8.2"
   },
   "scripts": {
-    "build:ts": "tsc --out dist/main.js src/script/main.ts",
+    "build:ts": "tsc -p src/script/",
     "build:js": "cp node_modules/knockout/build/output/knockout-latest.js dist/knockout.js",
     "build:html": "cp src/html/* dist/",
     "build:style": "cp src/style/* dist/",
-    "build:test": "tsc --sourcemap --out test/script/all.spec.js test/script/sums/*.ts",
+    "build:test": "tsc -p test/script/",
     "build:all": "npm run build:ts && npm run build:js && npm run build:html && npm run build:style && npm run build:test",
     "build": "npm run build:all && npm run test:js",
 
     "test:js": "node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=test/script/jasmine.json",
+    "test": "npm run build:test && npm run test:js",
     
     "clean:dist": "rimraf dist",
     "clean:test": "rimraf test/script/*.js && rimraf test/script/*.js.map",
