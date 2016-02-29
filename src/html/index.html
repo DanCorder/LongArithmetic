@@ -13,6 +13,7 @@
             <li><label for="number-of-sums">Number of sums: </label><input id="number-of-sums" type="text" data-bind="value: numberOfSums" /></li>
             <li><label for="max-digits">Maximum number of digits:</label><input id="max-digits" type="text" data-bind="value: maxDigits" /></li>
             <li><label for="allow-carrying">Allow carrying:</label><input id="allow-carrying" type="checkbox" data-bind="checked: allowCarrying" /></li>
+            <li><label for="sum-type">Sum type:</label><select id="sum-type" data-bind="value: sumType, options: allowedSumTypes, optionsText: function(item) { return Sums.Operator[item]; }"></select></li>
             <li><button title="Generate Sums" onclick="viewModel.refreshSums();" >Generate Sums</button></li>
         </ul>
         

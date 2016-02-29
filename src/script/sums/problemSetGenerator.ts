@@ -1,4 +1,5 @@
 /// <reference path="additionSum.ts" />
+/// <reference path="subtractionSum.ts" />
 /// <reference path="operator.ts" />
 
 module Sums {
@@ -7,7 +8,16 @@ module Sums {
             var sums : Sum[] = [];
             
             for (var i = 0; i < numberOfSums; i++) {
-                sums.push(new AdditionSum(maxDigits, allowCarrying));
+                switch(type)
+                {
+                    case Operator.Add:
+                        sums.push(new AdditionSum(maxDigits, allowCarrying));
+                        break;
+                    case Operator.Subtract:
+                        sums.push(new SubtractionSum(maxDigits, allowCarrying));
+                        break;
+                }
+                
             }
             
             return sums;

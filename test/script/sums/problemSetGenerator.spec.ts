@@ -28,6 +28,14 @@ describe("problemSetGenerator", function() {
         expect(sum.operator).toEqual('+');
     });
     
+    it("generates subtraction sums", function() {
+        var underTest = new Sums.ProblemSetGenerator();
+        
+        var sum = underTest.getSums(1, Sums.Operator.Subtract, 1, false)[0];
+        
+        expect(sum.operator).toEqual('-');
+    });
+    
     it("generates sums without carrying", function() {
         var underTest = new Sums.ProblemSetGenerator();
         
