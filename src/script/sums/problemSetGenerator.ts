@@ -4,17 +4,22 @@
 
 module Sums {
     export class ProblemSetGenerator {
-        getSums(numberOfSums: number, type: Operator, maxDigits: number, allowCarrying: boolean)  {
+        getSums(numberOfSums: number,
+                type: Operator,
+                topOperandDigits: number,
+                bottomOperandDigits: number,
+                allowCarrying: boolean)
+        {
             var sums : Sum[] = [];
             
             for (var i = 0; i < numberOfSums; i++) {
                 switch(type)
                 {
                     case Operator.Add:
-                        sums.push(new AdditionSum(maxDigits, allowCarrying));
+                        sums.push(new AdditionSum(topOperandDigits, bottomOperandDigits, allowCarrying));
                         break;
                     case Operator.Subtract:
-                        sums.push(new SubtractionSum(maxDigits, allowCarrying));
+                        sums.push(new SubtractionSum(topOperandDigits, bottomOperandDigits, allowCarrying));
                         break;
                 }
                 

@@ -9,5 +9,11 @@ module Sums {
         protected getRandomIntBetween(min : number, max : number) : number {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
+        
+        protected generateOperand(arrayToFill: number[], numberOfDigits: number) {
+            for (var i = 0; i < numberOfDigits; i++) {
+                arrayToFill.push(this.getRandomIntBetween(0, 9));
+            }
+        }
     }
 }
