@@ -13,6 +13,10 @@ li {
     display: inline-block;
 }
 
+input[type=text] {
+    width: 3em;
+}
+
 @media print {
     #options
     {
