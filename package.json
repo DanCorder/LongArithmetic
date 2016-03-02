@@ -1,5 +1,7 @@
 {
-  "name": "longArithmetic",
+  "name": "long-arithmetic",
+  "version": "0.0.1-alpha",
+  "description": "A JavaScript powered website to generate random long arithmetic problems.",
   "devDependencies": {
     "jasmine": "^2.3.1",
     "jasmine-core": "^2.3.4",
