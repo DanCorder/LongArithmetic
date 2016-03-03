@@ -41,6 +41,11 @@ describe("subtractionSum", function() {
         
         expect(underTest.operand1.length).toEqual(5);
         expect(underTest.operand2.length).toEqual(5);
+        
+        underTest = new Sums.SubtractionSum(6, 9, true);
+        
+        expect(underTest.operand1.length).toEqual(6);
+        expect(underTest.operand2.length).toEqual(6);
     });
     
     it("generates sums with carrying", function() {
@@ -55,6 +60,14 @@ describe("subtractionSum", function() {
             }
         }
         expect(passCaseFound).toBeTruthy();
+    });
+    
+    it("generates sums with carrying with positive answers", function() {
+        // Digits are random. Assume that 100 is enough to get an example failure
+        for (var i = 0; i < 100; i++) {
+            var underTest = new Sums.SubtractionSum(1, 1, true);
+            expect(underTest.operand1[0] - underTest.operand2[0]).toBeGreaterThan(-1);
+        }
     });
     
     it("generates sums without carrying without a leading 0", function() {

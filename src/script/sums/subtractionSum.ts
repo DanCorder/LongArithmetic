@@ -5,13 +5,21 @@ module Sums {
         constructor(operand1Length: number, operand2Length: number, allowCarrying: boolean) {
             super('-');
             
+            // Even with carrying we don't want a negative answer
+            operand2Length = Math.min(operand1Length, operand2Length);
+            
             if (allowCarrying) {
-                this.generateOperand(this.operand1, operand1Length);
-                this.generateOperand(this.operand2, operand2Length);
+                this.appendDigitsBetween(0, 9, this.operand1, operand2Length - 1);
+                this.appendDigitBetween(1, 9, this.operand1);
+                
+                if (operand1Length > operand2Length) {
+                    this.appendDigitsBetween(0, 9, this.operand1, operand1Length - operand2Length - 1);
+                    this.appendDigitBetween(1, 9, this.operand1);
+                }
+                
+                this.appendDigitsBetween(0, 9, this.operand2, operand2Length - 1);
+                this.appendDigitBetween(1, this.operand1[operand2Length - 1], this.operand2);
             } else {
-                // If we're not allowing carrying operand 2 can't larger than operand 1
-                operand2Length = Math.min(operand1Length, operand2Length);
-
                 this.appendDigitsBetween(0, 9, this.operand1, operand2Length - 1);
                 this.appendDigitBetween(1, 9, this.operand1);
                 
