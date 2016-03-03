@@ -6,17 +6,17 @@ module Sums {
             super('+');
             
             if (allowCarrying) {
-                this.generateRandomOperand(this.operand1, operand1Length);
-                this.generateRandomOperand(this.operand2, operand2Length);
+                this.generateOperand(this.operand1, operand1Length);
+                this.generateOperand(this.operand2, operand2Length);
             } else {
-                this.appendRandomDigitsBetween(0, 9, this.operand1, operand1Length - 1);
+                this.appendDigitsBetween(0, 9, this.operand1, operand1Length - 1);
                 var upperlimitOnLeadingDigit = operand1Length === operand2Length ? 8 : 9;
-                this.appendRandomDigitBetween(1, upperlimitOnLeadingDigit, this.operand1);
+                this.appendDigitBetween(1, upperlimitOnLeadingDigit, this.operand1);
                 
                 for (var i = 0; i < operand2Length - 1; i++) {
-                    this.appendRandomDigitBetween(0, 9 - this.getDigitOrZero(this.operand1, i), this.operand2);
+                    this.appendDigitBetween(0, 9 - this.getDigitOrZero(this.operand1, i), this.operand2);
                 }
-                this.appendRandomDigitBetween(1, 9 - this.getDigitOrZero(this.operand1, operand2Length - 1), this.operand2);
+                this.appendDigitBetween(1, 9 - this.getDigitOrZero(this.operand1, operand2Length - 1), this.operand2);
             }
         }
         
