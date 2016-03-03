@@ -5,15 +5,26 @@ module Sums {
         constructor(operand1Length: number, operand2Length: number, allowCarrying: boolean) {
             super('-');
             
-            this.generateOperand(this.operand1, operand1Length);
-            
             if (allowCarrying) {
-                this.generateOperand(this.operand2, operand2Length);
+                this.generateRandomOperand(this.operand1, operand1Length);
+                this.generateRandomOperand(this.operand2, operand2Length);
             } else {
-                for (var i = 0; i < operand2Length; i++) {
-                    var operand1Digit = this.operand1.length <= i ? 0 : this.operand1[i];
-                    this.operand2.push(this.getRandomIntBetween(0, operand1Digit));
+                // If we're not allowing carrying operand 2 can't larger than operand 1
+                operand2Length = Math.min(operand1Length, operand2Length);
+
+                this.appendRandomDigitsBetween(0, 9, this.operand1, operand2Length - 1);
+                this.appendRandomDigitBetween(1, 9, this.operand1);
+                
+                if (operand1Length > operand2Length) {
+                    this.appendRandomDigitsBetween(0, 9, this.operand1, operand1Length - operand2Length - 1);
+                    this.appendRandomDigitBetween(1, 9, this.operand1);
                 }
+                
+                for (var i = 0; i < operand2Length - 1; i++) {
+                    var operand1Digit = this.operand1.length <= i ? 0 : this.operand1[i];
+                    this.appendRandomDigitBetween(0, operand1Digit, this.operand2);
+                }
+                this.appendRandomDigitBetween(1, this.operand1[operand2Length - 1], this.operand2);
             }
         }
     }

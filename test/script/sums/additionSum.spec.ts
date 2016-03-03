@@ -27,6 +27,14 @@ describe("additionSum", function() {
         }
     });
     
+    it("generates sums without carrying with correct leading digits", function() {
+        // Digits are random. Assume that 100 is enough to get an example failure
+        for (var i = 0; i < 100; i++) {
+            var underTest = new Sums.AdditionSum(1, 1, false);
+            expect(underTest.operand1[0] + underTest.operand2[0]).toBeLessThan(10);
+        }
+    });
+    
     it("generates sums with carrying", function() {
         // Digits are random. Assume that 100 is enough to get an example pass
         var underTest = new Sums.AdditionSum(100, 100, true);
@@ -39,5 +47,23 @@ describe("additionSum", function() {
             }
         }
         expect(passCaseFound).toBeTruthy();
+    });
+    
+    it("generates sums without carrying without a leading 0", function() {
+        // Digits are random. Assume that 100 is enough to get a failure
+        for (var i = 0; i < 100; i++) {
+            var underTest = new Sums.AdditionSum(1, 1, false);
+            expect(underTest.operand1[0]).not.toBe(0);
+            expect(underTest.operand2[0]).not.toBe(0);
+        }
+    });
+    
+    it("generates sums with carrying without a leading 0", function() {
+        // Digits are random. Assume that 100 is enough to get a failure
+        for (var i = 0; i < 100; i++) {
+            var underTest = new Sums.AdditionSum(1, 1, true);
+            expect(underTest.operand1[0]).not.toBe(0);
+            expect(underTest.operand2[0]).not.toBe(0);
+        }
     });
 });
