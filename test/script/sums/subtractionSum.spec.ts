@@ -23,7 +23,7 @@ describe("subtractionSum", function() {
         var underTest = new Sums.SubtractionSum(100, 100, false);
         
         for (var i = 0; i < 100; i++) {
-            expect(underTest.operand1[i] - underTest.operand2[i]).toBeGreaterThan(-1);
+            expect(underTest.operand1[i]).not.toBeLessThan(underTest.operand2[i]);
         }
     });
     
@@ -31,12 +31,12 @@ describe("subtractionSum", function() {
         // Digits are random. Assume that 100 is enough to get an example failure
         for (var i = 0; i < 100; i++) {
             var underTest = new Sums.SubtractionSum(2, 1, false);
-        
-            expect(underTest.operand1[0] - underTest.operand2[0]).toBeGreaterThan(-1);
+
+            expect(underTest.operand1[0]).not.toBeLessThan(underTest.operand2[0]);
         }
     });
     
-    it("shortens the second operand when the first operand has fewer digits", function() {
+    it("truncates the second operand to match the first", function() {
         var underTest = new Sums.SubtractionSum(5, 8, false);
         
         expect(underTest.operand1.length).toEqual(5);
