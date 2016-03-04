@@ -27,6 +27,14 @@ describe("additionSum", function() {
         }
     });
     
+    it("generates sums without carrying when operand 2 is shorter", function() {
+        // Digits are random. Assume that 100 is enough to get an example failure
+        for (var i = 0; i < 100; i++) {
+            var underTest = new Sums.AdditionSum(2, 1, false);
+            expect(underTest.operand1[0] + underTest.operand2[0]).toBeLessThan(10);
+        }
+    });
+    
     it("generates sums without carrying with correct leading digits", function() {
         // Digits are random. Assume that 100 is enough to get an example failure
         for (var i = 0; i < 100; i++) {

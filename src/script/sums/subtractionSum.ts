@@ -17,12 +17,12 @@ module Sums {
                     this.generateOperandLessThan(this.operand1, this.operand2);
                 }
             } else {
-                // The first digit of operand 2 can't be zero so make sure that matching digit of operand 1 isn't either.
-                this.operand1[operand2Length - 1] = this.getRandomIntBetween(1, 9);
+                // The first digit of operand2 can't be zero so make sure that matching digit of
+                // operand1 isn't either.
+                this.operand1[operand2Length - 1] = this.getIntBetween(1, 9);
                 
                 for (var i = 0; i < operand2Length - 1; i++) {
-                    var operand1Digit = this.operand1.length <= i ? 0 : this.operand1[i];
-                    this.appendDigitBetween(0, operand1Digit, this.operand2);
+                    this.appendDigitBetween(0, this.operand1[i], this.operand2);
                 }
                 this.appendDigitBetween(1, this.operand1[operand2Length - 1], this.operand2);
             }
@@ -35,11 +35,11 @@ module Sums {
                 if (areEqual) {
                     // The first digit cannot be 0
                     var lowerLimit = i === reference.length - 1 ? 1 : 0;
-                    var targetDigit = this.getRandomIntBetween(lowerLimit, reference[i]);
+                    var targetDigit = this.getIntBetween(lowerLimit, reference[i]);
                     target.unshift(targetDigit);
-                    areEqual = areEqual && (reference[i] === targetDigit);
+                    areEqual = reference[i] === targetDigit;
                 } else {
-                    target.unshift(this.getRandomIntBetween(0, 9));
+                    target.unshift(this.getIntBetween(0, 9));
                 }
             }
         }

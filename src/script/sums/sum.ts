@@ -11,7 +11,7 @@ module Sums {
         
         protected appendDigitsBetween(lowerBound: number, upperBound: number, arrayToFill: number[], numberOfDigits: number) {
             for (var i = 0; i < numberOfDigits; i++) {
-                arrayToFill.push(this.getRandomIntBetween(lowerBound, upperBound));
+                arrayToFill.push(this.getIntBetween(lowerBound, upperBound));
             }
         }
         
@@ -21,7 +21,7 @@ module Sums {
         }
         
         // Returns a random int betwween min and max inclusive.
-        protected getRandomIntBetween(min : number, max : number) : number {
+        protected getIntBetween(min : number, max : number) : number {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     }
