@@ -8,31 +8,39 @@ module Sums {
             // Even with carrying we don't want a negative answer
             operand2Length = Math.min(operand1Length, operand2Length);
             
+            this.generateOperand(this.operand1, operand1Length);
+            
             if (allowCarrying) {
-                this.appendDigitsBetween(0, 9, this.operand1, operand2Length - 1);
-                this.appendDigitBetween(1, 9, this.operand1);
-                
                 if (operand1Length > operand2Length) {
-                    this.appendDigitsBetween(0, 9, this.operand1, operand1Length - operand2Length - 1);
-                    this.appendDigitBetween(1, 9, this.operand1);
+                    this.generateOperand(this.operand2, operand2Length);
+                } else {
+                    this.generateOperandLessThan(this.operand1, this.operand2);
                 }
-                
-                this.appendDigitsBetween(0, 9, this.operand2, operand2Length - 1);
-                this.appendDigitBetween(1, this.operand1[operand2Length - 1], this.operand2);
             } else {
-                this.appendDigitsBetween(0, 9, this.operand1, operand2Length - 1);
-                this.appendDigitBetween(1, 9, this.operand1);
-                
-                if (operand1Length > operand2Length) {
-                    this.appendDigitsBetween(0, 9, this.operand1, operand1Length - operand2Length - 1);
-                    this.appendDigitBetween(1, 9, this.operand1);
-                }
+                // The first digit of operand 2 can't be zero so make sure that matching digit of operand 1 isn't either.
+                this.operand1[operand2Length - 1] = this.getRandomIntBetween(1, 9);
                 
                 for (var i = 0; i < operand2Length - 1; i++) {
                     var operand1Digit = this.operand1.length <= i ? 0 : this.operand1[i];
                     this.appendDigitBetween(0, operand1Digit, this.operand2);
                 }
                 this.appendDigitBetween(1, this.operand1[operand2Length - 1], this.operand2);
+            }
+        }
+        
+        // Generate an operand with a lower value but the same length as reference
+        private generateOperandLessThan(reference: number[], target: number[]) {
+            var areEqual = true;
+            for (var i = reference.length - 1; i >= 0; i--) {
+                if (areEqual) {
+                    // The first digit cannot be 0
+                    var lowerLimit = i === reference.length - 1 ? 1 : 0;
+                    var targetDigit = this.getRandomIntBetween(lowerLimit, reference[i]);
+                    target.unshift(targetDigit);
+                    areEqual = areEqual && (reference[i] === targetDigit);
+                } else {
+                    target.unshift(this.getRandomIntBetween(0, 9));
+                }
             }
         }
     }

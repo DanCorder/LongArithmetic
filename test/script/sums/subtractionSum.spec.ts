@@ -65,8 +65,9 @@ describe("subtractionSum", function() {
     it("generates sums with carrying with positive answers", function() {
         // Digits are random. Assume that 100 is enough to get an example failure
         for (var i = 0; i < 100; i++) {
-            var underTest = new Sums.SubtractionSum(1, 1, true);
-            expect(underTest.operand1[0] - underTest.operand2[0]).toBeGreaterThan(-1);
+            var underTest = new Sums.SubtractionSum(2, 2, true);
+            expect(10 * underTest.operand1[1] + underTest.operand1[0])
+                .not.toBeLessThan(10 * underTest.operand2[1] + underTest.operand2[0]);
         }
     });
     

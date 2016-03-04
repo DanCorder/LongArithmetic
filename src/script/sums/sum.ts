@@ -21,7 +21,7 @@ module Sums {
         }
         
         // Returns a random int betwween min and max inclusive.
-        private getRandomIntBetween(min : number, max : number) : number {
+        protected getRandomIntBetween(min : number, max : number) : number {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     }
