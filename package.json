@@ -7,6 +7,7 @@
     "jasmine-core": "^2.3.4",
     "knockout": "^3.3.0",
     "rimraf": "latest",
+    "tslint": "^3.5.0",
     "typescript": "^1.8.2"
   },
   "scripts": {
@@ -16,11 +17,11 @@
     "build:style": "cp src/style/* dist/",
     "build:test": "tsc -p test/script/",
     "build:all": "npm run build:ts && npm run build:js && npm run build:html && npm run build:style && npm run build:test",
-    "build": "npm run build:all && npm run test:js",
-
+    "build": "npm run build:all && npm run lint && npm run test:js",
     "test:js": "node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=test/script/jasmine.json",
-    "test": "npm run build:test && npm run test:js",
-    
+    "test": "npm run build:test && npm run lint && npm run test:js",
+    "lint:ts": "tslint **/*[!.]?.ts",
+    "lint": "npm run lint:ts",
     "clean:dist": "rimraf dist",
     "clean:test": "rimraf test/script/*.js && rimraf test/script/*.js.map",
     "clean": "npm run clean:dist && npm run clean:test"
