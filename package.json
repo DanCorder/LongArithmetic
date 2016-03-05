@@ -1,6 +1,6 @@
 {
   "name": "long-arithmetic",
-  "version": "0.0.1-alpha",
+  "version": "1.0.0",
   "description": "A JavaScript powered website to generate random long arithmetic problems.",
   "devDependencies": {
     "jasmine": "^2.3.1",
