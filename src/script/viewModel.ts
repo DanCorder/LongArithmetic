@@ -1,7 +1,7 @@
 /// <reference path="typeDefinitions/knockout.d.ts" />
 /// <reference path="sums/problemSetGenerator.ts" />
 
-module LongArithmatic {
+namespace LongArithmatic {
     export class ViewModel {
         constructor(private problemSetGenerator: Sums.ProblemSetGenerator) {
             this.numberOfSums(12);
@@ -10,10 +10,10 @@ module LongArithmatic {
             this.allowCarrying(true);
             this.sumType(Sums.Operator.Add);
             this.allowedSumTypes([ Sums.Operator.Add, Sums.Operator.Subtract ]);
-            
+
             this.refreshSums();
         }
-        
+
         public sums = ko.observableArray<Sums.Sum>();
         public numberOfSums = ko.observable<number>();
         public digitsTop = ko.observable<number>();
@@ -21,7 +21,7 @@ module LongArithmatic {
         public allowCarrying = ko.observable<boolean>();
         public sumType = ko.observable<Sums.Operator>();
         public allowedSumTypes = ko.observableArray<Sums.Operator>();
-        
+
         public refreshSums() {
             this.sums(this.problemSetGenerator.getSums(this.numberOfSums(), this.sumType(), this.digitsTop(), this.digitsBottom(), this.allowCarrying()));
         }

@@ -19,7 +19,7 @@
     "build:all": "npm run build:ts && npm run build:js && npm run build:html && npm run build:style && npm run build:test",
     "build": "npm run build:all && npm run lint && npm run test:js",
     "test:js": "node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=test/script/jasmine.json",
-    "test": "npm run build:test && npm run lint && npm run test:js",
+    "test": "npm run build:test && npm run test:js",
     "lint:ts": "tslint **/*[!.]?.ts",
     "lint": "npm run lint:ts",
     "clean:dist": "rimraf dist",

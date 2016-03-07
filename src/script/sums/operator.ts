@@ -1,4 +1,4 @@
-module Sums {
+namespace Sums {
     export enum Operator {
         Add,
         Subtract,

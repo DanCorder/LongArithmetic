@@ -2,6 +2,6 @@
 /// <reference path="viewModel.ts" />
 /// <reference path="sums/problemSetGenerator.ts" />
 
-var sumGenerator = new Sums.ProblemSetGenerator();
-var viewModel = new LongArithmatic.ViewModel(sumGenerator);
+const sumGenerator = new Sums.ProblemSetGenerator();
+const viewModel = new LongArithmatic.ViewModel(sumGenerator);
 ko.applyBindings(viewModel);
