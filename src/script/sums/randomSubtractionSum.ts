@@ -1,7 +1,7 @@
-/// <reference path="sum.ts" />
+/// <reference path="randomSum.ts" />
 
 namespace Sums {
-    export class SubtractionSum extends Sum {
+    export class RandomSubtractionSum extends RandomSum {
 
         constructor(operand1Length: number, operand2Length: number, allowCarrying: boolean) {
             super("-");

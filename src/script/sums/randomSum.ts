@@ -1,5 +1,5 @@
 namespace Sums {
-    export abstract class Sum {
+    export abstract class RandomSum {
         operand1: number[] = [];
         operand2: number[] = [];
 

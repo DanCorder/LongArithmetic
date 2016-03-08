@@ -1,5 +1,5 @@
-/// <reference path="additionSum.ts" />
-/// <reference path="subtractionSum.ts" />
+/// <reference path="randomAdditionSum.ts" />
+/// <reference path="randomSubtractionSum.ts" />
 /// <reference path="operator.ts" />
 
 namespace Sums {
@@ -8,16 +8,16 @@ namespace Sums {
                 type: Operator,
                 topOperandDigits: number,
                 bottomOperandDigits: number,
-                allowCarrying: boolean): Sum[] {
-            const sums: Sum[] = [];
+                allowCarrying: boolean): RandomSum[] {
+            const sums: RandomSum[] = [];
 
             for (let i = 0; i < numberOfSums; i++) {
                 switch (type) {
                     case Operator.Add:
-                        sums.push(new AdditionSum(topOperandDigits, bottomOperandDigits, allowCarrying));
+                        sums.push(new RandomAdditionSum(topOperandDigits, bottomOperandDigits, allowCarrying));
                         break;
                     case Operator.Subtract:
-                        sums.push(new SubtractionSum(topOperandDigits, bottomOperandDigits, allowCarrying));
+                        sums.push(new RandomSubtractionSum(topOperandDigits, bottomOperandDigits, allowCarrying));
                         break;
                 }
 

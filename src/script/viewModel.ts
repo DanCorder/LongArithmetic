@@ -14,7 +14,7 @@ namespace LongArithmatic {
             this.refreshSums();
         }
 
-        public sums = ko.observableArray<Sums.Sum>();
+        public sums = ko.observableArray<Sums.RandomSum>();
         public numberOfSums = ko.observable<number>();
         public digitsTop = ko.observable<number>();
         public digitsBottom = ko.observable<number>();
