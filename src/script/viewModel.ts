@@ -23,7 +23,7 @@ namespace LongArithmatic {
         public allowedSumTypes = ko.observableArray<Sums.Operator>();
 
         public refreshSums() {
-            this.sums(this.problemSetGenerator.getSums(this.numberOfSums(), this.sumType(), this.digitsTop(), this.digitsBottom(), this.allowCarrying()));
+            this.sums(this.problemSetGenerator.getRandomSums(this.numberOfSums(), this.sumType(), this.digitsTop(), this.digitsBottom(), this.allowCarrying()));
         }
     }
 }

@@ -4,33 +4,36 @@ namespace Sums {
     export class RandomSubtractionSum extends RandomSum {
 
         constructor(operand1Length: number, operand2Length: number, allowCarrying: boolean) {
-            super("-");
+            const operand1: number[] = [];
+            const operand2: number[] = [];
 
             // Even with carrying we don't want a negative answer
             operand2Length = Math.min(operand1Length, operand2Length);
 
-            this.generateOperand(this.operand1, operand1Length);
+            RandomSum.generateOperand(operand1, operand1Length);
 
             if (allowCarrying) {
                 if (operand1Length > operand2Length) {
-                    this.generateOperand(this.operand2, operand2Length);
+                    RandomSum.generateOperand(operand2, operand2Length);
                 } else {
-                    this.generateOperandLessThan(this.operand1, this.operand2);
+                    RandomSubtractionSum.generateOperandLessThan(operand1, operand2);
                 }
             } else {
                 // The first digit of operand2 can't be zero so make sure that matching digit of
                 // operand1 isn't either.
-                this.operand1[operand2Length - 1] = this.getIntBetween(1, 9);
+                operand1[operand2Length - 1] = RandomSum.getIntBetween(1, 9);
 
                 for (let i = 0; i < operand2Length - 1; i++) {
-                    this.appendDigitBetween(0, this.operand1[i], this.operand2);
+                    RandomSum.appendDigitBetween(0, operand1[i], operand2);
                 }
-                this.appendDigitBetween(1, this.operand1[operand2Length - 1], this.operand2);
+                RandomSum.appendDigitBetween(1, operand1[operand2Length - 1], operand2);
             }
+
+            super(Operator.Subtract, operand1, operand2);
         }
 
         // Generate an operand with a lower value but the same length as reference
-        private generateOperandLessThan(reference: number[], target: number[]) {
+        private static generateOperandLessThan(reference: number[], target: number[]) {
             let areEqual = true;
             for (let i = reference.length - 1; i >= 0; i--) {
                 if (areEqual) {

@@ -4,11 +4,11 @@
 
 namespace Sums {
     export class ProblemSetGenerator {
-        getSums(numberOfSums: number,
-                type: Operator,
-                topOperandDigits: number,
-                bottomOperandDigits: number,
-                allowCarrying: boolean): RandomSum[] {
+        getRandomSums(numberOfSums: number,
+                      type: Operator,
+                      topOperandDigits: number,
+                      bottomOperandDigits: number,
+                      allowCarrying: boolean): RandomSum[] {
             const sums: RandomSum[] = [];
 
             for (let i = 0; i < numberOfSums; i++) {
@@ -24,6 +24,10 @@ namespace Sums {
             }
 
             return sums;
+        }
+
+        getSingleDigitAdditions(): Sum[] {
+            return [];
         }
     }
 }

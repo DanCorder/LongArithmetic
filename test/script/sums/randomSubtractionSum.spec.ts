@@ -8,7 +8,15 @@ describe("RandomSubtractionSum", function() {
 
         const operator = underTest.operator;
 
-        expect(operator).toEqual("-");
+        expect(operator).toEqual(Sums.Operator.Subtract);
+    });
+
+    it("uses the correct operator symbol", function() {
+        const underTest = new Sums.RandomSubtractionSum(1, 1, true);
+
+        const symbol = underTest.symbol;
+
+        expect(symbol).toEqual("-");
     });
 
     it("generates the correct number of digits", function() {
