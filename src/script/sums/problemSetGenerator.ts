@@ -8,7 +8,7 @@ namespace Sums {
                 type: Operator,
                 topOperandDigits: number,
                 bottomOperandDigits: number,
-                allowCarrying: boolean) {
+                allowCarrying: boolean): Sum[] {
             const sums: Sum[] = [];
 
             for (let i = 0; i < numberOfSums; i++) {
@@ -24,10 +24,6 @@ namespace Sums {
             }
 
             return sums;
-        }
-
-        private getRandomIntBetween(min: number, max: number): number {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     }
 }
