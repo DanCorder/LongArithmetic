@@ -62,4 +62,52 @@ describe("problemSetGenerator", function() {
         }
         expect(passCaseFound).toBeTruthy();
     });
+
+    describe("generating 100 addition problems", function() {
+        it("generates 100 sums", function() {
+            const underTest = new Sums.ProblemSetGenerator();
+
+            const sums = underTest.getSingleDigitAdditions();
+
+            expect(sums.length).toBe(100);
+        });
+
+        it("generates all the sums", function() {
+            const foundSums: boolean[][] = [[], [], [], [], [], [], [], [], [], []];
+            const underTest = new Sums.ProblemSetGenerator();
+
+            const sums = underTest.getSingleDigitAdditions();
+
+            for (const sum of sums) {
+                foundSums[sum.operand1[0]][sum.operand2[0]] = true;
+            }
+
+            let allSumsFound = true;
+            for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    allSumsFound = allSumsFound && foundSums[i][j];
+                }
+            }
+            expect(allSumsFound).toBeTruthy();
+        });
+
+        it("shuffles the sums", function() {
+            const underTest = new Sums.ProblemSetGenerator();
+
+            // Shuffling is random so do this test up to two times.
+            let passCaseFound = false;
+            for (let i = 0; i < 2; i++) {
+                const sums = underTest.getSingleDigitAdditions();
+
+                // Check that 0 + 0 isn't the first or last sum
+                if ((sums[0].operand1[0] !== 0 || sums[0].operand2[0] !== 0) &&
+                    (sums[99].operand1[0] !== 0 || sums[99].operand2[0] !== 0)) {
+                    passCaseFound = true;
+                    break;
+                }
+            }
+
+            expect(passCaseFound).toBeTruthy();
+        });
+    });
 });

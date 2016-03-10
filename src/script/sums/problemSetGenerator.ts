@@ -1,6 +1,7 @@
 /// <reference path="randomAdditionSum.ts" />
 /// <reference path="randomSubtractionSum.ts" />
 /// <reference path="operator.ts" />
+/// <reference path="../utils/arrayExtensions.ts" />
 
 namespace Sums {
     export class ProblemSetGenerator {
@@ -27,7 +28,17 @@ namespace Sums {
         }
 
         getSingleDigitAdditions(): Sum[] {
-            return [];
+            const sums: Sum[] = [];
+
+            for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    sums.push(new Sum(Operator.Add, [i], [j]));
+                }
+            }
+
+            sums.shuffle();
+
+            return sums;
         }
     }
 }
