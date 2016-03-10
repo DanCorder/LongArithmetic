@@ -8,16 +8,21 @@
 
     <body>
         <h1>Long Arithmetic</h1>
-        
-        <ul id="options">
+
+        <ul class="options">
+            <li><strong>Random Sums</strong></li>
             <li><label for="number-of-sums">Number of sums: </label><input id="number-of-sums" type="text" data-bind="textInput: numberOfSums" /></li>
             <li><label for="digits-top">Number of digits (top):</label><input id="digits-top" type="text" data-bind="textInput: digitsTop" /></li>
             <li><label for="digits-bottom">Number of digits (bottom):</label><input id="digits-bottom" type="text" data-bind="textInput: digitsBottom" /></li>
             <li><label for="allow-carrying">Allow carrying:</label><input id="allow-carrying" type="checkbox" data-bind="checked: allowCarrying" /></li>
             <li><label for="sum-type">Sum type:</label><select id="sum-type" data-bind="value: sumType, options: allowedSumTypes, optionsText: function(item) { return Sums.Operator[item]; }"></select></li>
-            <li><button title="Generate Sums" onclick="viewModel.refreshSums();" >Generate Sums</button></li>
+            <li><button title="Generate Sums" onclick="viewModel.generateRandomSums();" >Generate Sums</button></li>
         </ul>
-        
+        <ul class="options">
+            <li><strong>Single digit additions</strong></li>
+            <li><button title="Generate Sums" onclick="viewModel.generateSingleDigitSums();" >Generate Sums</button></li>
+        </ul>
+
         <div data-bind="foreach: sums" id="sums">
             <div class="sum">
                 <div class="row">
@@ -29,7 +34,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script src="knockout.js"></script>
         <script src="main.js"></script>
     </body>

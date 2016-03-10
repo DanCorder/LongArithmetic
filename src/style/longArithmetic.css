@@ -24,11 +24,11 @@ input[type=text] {
     }
 }
 
-#options {
+.options {
     margin-bottom: 1em;
 }
 
-#options > li {
+.options > li {
     margin-right: 1em;
 }
 
