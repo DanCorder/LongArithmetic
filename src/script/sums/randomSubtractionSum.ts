@@ -1,4 +1,5 @@
 /// <reference path="randomSum.ts" />
+/// <reference path="../utils/random.ts" />
 
 namespace Sums {
     export class RandomSubtractionSum extends RandomSum {
@@ -21,7 +22,7 @@ namespace Sums {
             } else {
                 // The first digit of operand2 can't be zero so make sure that matching digit of
                 // operand1 isn't either.
-                operand1[operand2Length - 1] = RandomSum.getIntBetween(1, 9);
+                operand1[operand2Length - 1] = Utils.Random.getIntBetween(1, 9);
 
                 for (let i = 0; i < operand2Length - 1; i++) {
                     RandomSum.appendDigitBetween(0, operand1[i], operand2);
@@ -39,11 +40,11 @@ namespace Sums {
                 if (areEqual) {
                     // The first digit cannot be 0
                     const lowerLimit = i === reference.length - 1 ? 1 : 0;
-                    const targetDigit = this.getIntBetween(lowerLimit, reference[i]);
+                    const targetDigit = Utils.Random.getIntBetween(lowerLimit, reference[i]);
                     target.unshift(targetDigit);
                     areEqual = reference[i] === targetDigit;
                 } else {
-                    target.unshift(this.getIntBetween(0, 9));
+                    target.unshift(Utils.Random.getIntBetween(0, 9));
                 }
             }
         }

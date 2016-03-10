@@ -1,4 +1,5 @@
 /// <reference path="sum.ts" />
+/// <reference path="../utils/random.ts" />
 
 namespace Sums {
     export abstract class RandomSum extends Sum {
@@ -12,18 +13,13 @@ namespace Sums {
 
         protected static appendDigitsBetween(lowerBound: number, upperBound: number, arrayToFill: number[], numberOfDigits: number) {
             for (let i = 0; i < numberOfDigits; i++) {
-                arrayToFill.push(this.getIntBetween(lowerBound, upperBound));
+                arrayToFill.push(Utils.Random.getIntBetween(lowerBound, upperBound));
             }
         }
 
         protected static generateOperand(arrayToFill: number[], numberOfDigits: number) {
             this.appendDigitsBetween(0, 9, arrayToFill, numberOfDigits - 1);
             this.appendDigitBetween(1, 9, arrayToFill);
-        }
-
-        // Returns a random int betwween min and max inclusive.
-        protected static getIntBetween(min: number, max: number): number {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     }
 }

@@ -1,4 +1,5 @@
 /// <reference path="randomSum.ts" />
+/// <reference path="../utils/random.ts" />
 
 namespace Sums {
     export class RandomAdditionSum extends RandomSum {
@@ -16,7 +17,7 @@ namespace Sums {
                 // that matches the leading digit of operand2 isn't 9.
                 if (operand1Length >= operand2Length) {
                     const lowerLimit = operand1Length === operand2Length ? 1 : 0;
-                    operand1[operand2Length - 1] = RandomSum.getIntBetween(lowerLimit, 8);
+                    operand1[operand2Length - 1] = Utils.Random.getIntBetween(lowerLimit, 8);
                 }
 
                 for (let i = 0; i < operand2Length - 1; i++) {
