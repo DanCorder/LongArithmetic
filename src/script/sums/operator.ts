@@ -17,7 +17,7 @@ namespace Sums {
             case Operator.Divide:
                 return "/";
             default:
-                throw "Unrecognised operator: " + Operator;
+                throw "Unrecognised operator: " + operator;
         }
     }
 }

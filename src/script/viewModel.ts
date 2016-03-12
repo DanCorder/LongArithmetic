@@ -27,7 +27,7 @@ namespace LongArithmatic {
         }
 
         public generateSingleDigitSums() {
-            this.sums(this.problemSetGenerator.getSingleDigitAdditions());
+            this.sums(this.problemSetGenerator.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1));
         }
     }
 }

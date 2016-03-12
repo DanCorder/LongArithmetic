@@ -27,7 +27,7 @@ namespace Sums {
             return sums;
         }
 
-        getSingleDigitAdditions(): Sum[] {
+        getSingleDigitAdditions(ordering: Ordering): Sum[] {
             const sums: Sum[] = [];
 
             for (let i = 0; i < 10; i++) {
@@ -36,7 +36,7 @@ namespace Sums {
                 }
             }
 
-            sums.shuffle();
+            orderSums(sums, ordering);
 
             return sums;
         }

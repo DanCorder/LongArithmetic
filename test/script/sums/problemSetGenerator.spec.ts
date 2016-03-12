@@ -1,6 +1,7 @@
 /// <reference path="../typeDefinitions/jasmine.d.ts" />
 /// <reference path="../../../src/script/Sums/problemSetGenerator.ts" />
 /// <reference path="../../../src/script/Sums/operator.ts" />
+/// <reference path="../../../src/script/Sums/ordering.ts" />
 
 describe("problemSetGenerator", function() {
     describe("random sums", function() {
@@ -66,20 +67,31 @@ describe("problemSetGenerator", function() {
     });
 
     describe("generating single digit problems", function() {
-        describe("generating addition sums", function() {
+        it("generates single digit sums", function() {
+            const underTest = new Sums.ProblemSetGenerator();
+
+            const sums = underTest.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1);
+
+            for (const sum of sums) {
+                expect(sum.operand1.length).toBe(1);
+                expect(sum.operand2.length).toBe(1);
+            }
+        });
+
+        describe("generating all addition sums", function() {
             it("generates 100 sums", function() {
                 const underTest = new Sums.ProblemSetGenerator();
 
-                const sums = underTest.getSingleDigitAdditions();
+                const sums = underTest.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1);
 
                 expect(sums.length).toBe(100);
             });
 
-            it("generates all the sums", function() {
+            it("generates all possible sums", function() {
                 const foundSums: boolean[][] = [[], [], [], [], [], [], [], [], [], []];
                 const underTest = new Sums.ProblemSetGenerator();
 
-                const sums = underTest.getSingleDigitAdditions();
+                const sums = underTest.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1);
 
                 for (const sum of sums) {
                     foundSums[sum.operand1[0]][sum.operand2[0]] = true;
@@ -94,13 +106,51 @@ describe("problemSetGenerator", function() {
                 expect(allSumsFound).toBeTruthy();
             });
 
+            it("generates sums in ascending order", function() {
+                const underTest = new Sums.ProblemSetGenerator();
+                const sums = underTest.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1);
+
+                let expectedOperand1: number = 0;
+                let expectedOperand2: number = 0;
+
+                for (const sum of sums) {
+                    expect(sum.operand1[0]).toBe(expectedOperand1);
+                    expect(sum.operand2[0]).toBe(expectedOperand2);
+
+                    expectedOperand2++;
+                    if (expectedOperand2 > 9) {
+                        expectedOperand2 = 0;
+                        expectedOperand1++;
+                    }
+                }
+            });
+
+            it("generates sums in descending order", function() {
+                const underTest = new Sums.ProblemSetGenerator();
+                const sums = underTest.getSingleDigitAdditions(Sums.Ordering.DescendingOperand1);
+
+                let expectedOperand1: number = 9;
+                let expectedOperand2: number = 9;
+
+                for (const sum of sums) {
+                    expect(sum.operand1[0]).toBe(expectedOperand1);
+                    expect(sum.operand2[0]).toBe(expectedOperand2);
+
+                    expectedOperand2--;
+                    if (expectedOperand2 < 0) {
+                        expectedOperand2 = 9;
+                        expectedOperand1--;
+                    }
+                }
+            });
+
             it("shuffles the sums", function() {
                 const underTest = new Sums.ProblemSetGenerator();
 
                 // Shuffling is random so do this test up to two times.
                 let passCaseFound = false;
                 for (let i = 0; i < 2; i++) {
-                    const sums = underTest.getSingleDigitAdditions();
+                    const sums = underTest.getSingleDigitAdditions(Sums.Ordering.Random);
 
                     // Check that 0 + 0 isn't the first or last sum
                     if ((sums[0].operand1[0] !== 0 || sums[0].operand2[0] !== 0) &&
