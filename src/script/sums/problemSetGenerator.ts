@@ -1,6 +1,7 @@
 /// <reference path="randomAdditionSum.ts" />
 /// <reference path="randomSubtractionSum.ts" />
 /// <reference path="operator.ts" />
+/// <reference path="ordering.ts" />
 /// <reference path="../utils/arrayExtensions.ts" />
 
 namespace Sums {

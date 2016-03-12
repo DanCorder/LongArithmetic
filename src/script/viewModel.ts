@@ -10,6 +10,8 @@ namespace LongArithmatic {
             this.allowCarrying(true);
             this.sumType(Sums.Operator.Add);
             this.allowedSumTypes([ Sums.Operator.Add, Sums.Operator.Subtract ]);
+            this.ordering(Sums.Ordering.Random);
+            this.allowedOrderings([Sums.Ordering.Random, Sums.Ordering.AscendingOperand1, Sums.Ordering.DescendingOperand1]);
 
             this.generateRandomSums();
         }
@@ -21,13 +23,15 @@ namespace LongArithmatic {
         public allowCarrying = ko.observable<boolean>();
         public sumType = ko.observable<Sums.Operator>();
         public allowedSumTypes = ko.observableArray<Sums.Operator>();
+        public ordering = ko.observable<Sums.Ordering>();
+        public allowedOrderings = ko.observableArray<Sums.Ordering>();
 
         public generateRandomSums() {
             this.sums(this.problemSetGenerator.getRandomSums(this.numberOfSums(), this.sumType(), this.digitsTop(), this.digitsBottom(), this.allowCarrying()));
         }
 
         public generateSingleDigitSums() {
-            this.sums(this.problemSetGenerator.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1));
+            this.sums(this.problemSetGenerator.getSingleDigitAdditions(this.ordering()));
         }
     }
 }

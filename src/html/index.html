@@ -20,6 +20,7 @@
         </ul>
         <ul class="options">
             <li><strong>Single digit additions</strong></li>
+            <li><label for="sum-ordering">Ordering:</label><select id="sum-ordering" data-bind="value: ordering, options: allowedOrderings, optionsText: function(item) { return Sums.orderingToText(item); }"></select></li>
             <li><button title="Generate Sums" onclick="viewModel.generateSingleDigitSums();" >Generate Sums</button></li>
         </ul>
 
