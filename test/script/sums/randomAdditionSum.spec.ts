@@ -1,4 +1,4 @@
-/// <reference path="../typeDefinitions/jasmine.d.ts" />
+/// <reference path="../typings/main.d.ts" />
 /// <reference path="../../../src/script/Sums/randomAdditionSum.ts" />
 /// <reference path="../../../src/script/Sums/operator.ts" />
 

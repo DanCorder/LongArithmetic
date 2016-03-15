@@ -1,4 +1,4 @@
-/// <reference path="typeDefinitions/knockout.d.ts" />
+/// <reference path="typings/browser.d.ts" />
 /// <reference path="viewModel.ts" />
 /// <reference path="sums/problemSetGenerator.ts" />
 

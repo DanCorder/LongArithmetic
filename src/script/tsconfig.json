@@ -7,5 +7,8 @@
         "noEmitOnError": true,
         "noImplicitAny": true,
         "noImplicitReturns": true
-    }
+    },
+    "exclude": [
+        "typings"
+    ]
 }

@@ -1,0 +1,5 @@
+{
+  "ambientDependencies": {
+    "knockout": "registry:dt/knockout#3.2.0+20150312193415"
+  }
+}
