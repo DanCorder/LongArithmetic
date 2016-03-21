@@ -18,7 +18,7 @@ input[type=text] {
 }
 
 @media print {
-    #options
+    .options
     {
         display: none;
     }
@@ -35,8 +35,8 @@ input[type=text] {
 .sum
 {
     font-size: 30px;
-    margin-bottom: 3em;
-    margin-right: 2em;
+    margin-bottom: 2em;
+    margin-right: 1em;
     display: inline-block;
 }
 
