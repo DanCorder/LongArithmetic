@@ -16,8 +16,8 @@ describe("operand", function() {
         it("it writes digits in the correct order", function() {
             const underTest = new Sums.Operand();
 
-            underTest.push(2);
-            underTest.push(1);
+            underTest.prependDigit(2);
+            underTest.prependDigit(1);
 
             expect(underTest.toString()).toBe("12");
         });
@@ -26,9 +26,9 @@ describe("operand", function() {
     it("it overwrites digits", function() {
         const underTest = new Sums.Operand();
 
-        underTest.push(3);
-        underTest.push(2);
-        underTest.push(1);
+        underTest.prependDigit(3);
+        underTest.prependDigit(2);
+        underTest.prependDigit(1);
 
         underTest.setDigitAt(2, 4);
         expect(underTest.toString()).toBe("423");
@@ -41,9 +41,9 @@ describe("operand", function() {
     it("it gets digits", function() {
         const underTest = new Sums.Operand();
 
-        underTest.push(3);
-        underTest.push(2);
-        underTest.push(1);
+        underTest.prependDigit(3);
+        underTest.prependDigit(2);
+        underTest.prependDigit(1);
 
         expect(underTest.getDigitAt(0)).toBe(3);
         expect(underTest.getDigitAt(1)).toBe(2);
@@ -71,7 +71,7 @@ describe("operand", function() {
         it("it reports 0 correctly", function() {
             const underTest = new Sums.Operand();
 
-            underTest.push(1);
+            underTest.prependDigit(1);
 
             expect(underTest.length).toBe(1);
         });
@@ -79,8 +79,8 @@ describe("operand", function() {
         it("it reports 0 correctly", function() {
             const underTest = new Sums.Operand();
 
-            underTest.push(2);
-            underTest.push(1);
+            underTest.prependDigit(2);
+            underTest.prependDigit(1);
 
             expect(underTest.length).toBe(2);
         });

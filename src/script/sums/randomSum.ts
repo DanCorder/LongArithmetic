@@ -13,7 +13,7 @@ namespace Sums {
 
         protected static appendDigitsBetween(lowerBound: number, upperBound: number, operand: Operand, numberOfDigits: number) {
             for (let i = 0; i < numberOfDigits; i++) {
-                operand.push(Utils.Random.getIntBetween(lowerBound, upperBound));
+                operand.prependDigit(Utils.Random.getIntBetween(lowerBound, upperBound));
             }
         }
 

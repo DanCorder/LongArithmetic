@@ -8,7 +8,7 @@ namespace Sums {
             }
         }
 
-        push(digit: number) {
+        prependDigit(digit: number) {
             this.numberArray.push(digit);
         }
 
