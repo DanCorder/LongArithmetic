@@ -2,6 +2,12 @@ namespace Sums {
     export class Operand {
         private numberArray: number[] = [];
 
+        constructor(digit: number = undefined) {
+            if (digit !== undefined) {
+                this.numberArray.push(digit);
+            }
+        }
+
         push(digit: number) {
             this.numberArray.push(digit);
         }

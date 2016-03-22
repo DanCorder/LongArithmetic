@@ -2,6 +2,12 @@
 /// <reference path="../../../src/script/Sums/operand.ts" />
 
 describe("operand", function() {
+    describe("operand", function() {
+        it("can be created from a digit", function() {
+            expect(new Sums.Operand(3).toString()).toBe("3");
+        });
+    });
+
     describe("converting to string", function() {
         it("copes with an empty value", function() {
             expect(new Sums.Operand().toString()).toBe("");
