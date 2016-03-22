@@ -1,5 +1,6 @@
 {
   "ambientDependencies": {
+    "big-integer": "registry:dt/big-integer#0.0.0+20160319061115",
     "knockout": "registry:dt/knockout#3.2.0+20150312193415"
   }
 }

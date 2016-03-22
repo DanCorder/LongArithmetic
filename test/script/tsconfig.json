@@ -6,9 +6,11 @@
         "outFile": "all.spec.js",
         "noEmitOnError": true,
         "noImplicitAny": true,
-        "noImplicitReturns": true
+        "noImplicitReturns": true,
+        "allowJs": true
     },
     "exclude": [
-        "typings"
+        "typings",
+        "all.spec.js"
     ]
 }

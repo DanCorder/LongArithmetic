@@ -6,7 +6,8 @@
         "outFile": "../../dist/main.js",
         "noEmitOnError": true,
         "noImplicitAny": true,
-        "noImplicitReturns": true
+        "noImplicitReturns": true,
+        "allowJs": true
     },
     "exclude": [
         "typings"

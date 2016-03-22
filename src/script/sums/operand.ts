@@ -1,3 +1,6 @@
+/// <reference path="../typings/browser.d.ts" />
+/// <reference path="../../../node_modules/big-integer/BigInteger.js" />
+
 namespace Sums {
     export class Operand {
         private numberArray: number[] = [];
@@ -6,6 +9,10 @@ namespace Sums {
             if (digit !== undefined) {
                 this.numberArray.push(digit);
             }
+        }
+
+        get length(): number {
+            return this.numberArray.length;
         }
 
         prependDigit(digit: number) {
@@ -24,6 +31,30 @@ namespace Sums {
             this.numberArray[index] = digit;
         }
 
+        doArithmetic(operator: Operator, other: Operand): Operand {
+            const value = bigInt(this.toString());
+            const otherValue = bigInt(other.toString());
+
+            let resultValue: BigInteger;
+
+            switch(operator) {
+                case Operator.Add:
+                    resultValue = value.add(otherValue);
+                    break;
+                case Operator.Subtract:
+                    resultValue = value.subtract(otherValue);
+                    break;
+            }
+
+            const result = new Operand();
+
+            for (let char of resultValue.toString()) {
+                result.appendDigit(parseInt(char));
+            }
+
+            return result;
+        }
+
         toString(): string {
             let stringValue = "";
 
@@ -32,10 +63,6 @@ namespace Sums {
             }
 
             return stringValue;
-        }
-
-        get length(): number {
-            return this.numberArray.length;
         }
 
         // Return negative if this Operand is less than other, positive if other is less than this Operand, and 0 if they're equal.

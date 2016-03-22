@@ -85,4 +85,54 @@ describe("operand", function() {
             expect(underTest.length).toBe(2);
         });
     });
+
+    describe("arithmetic", function() {
+        it("it adds short numbers", function() {
+            const underTest1 = new Sums.Operand(6);
+            const underTest2 = new Sums.Operand(7);
+
+            const result = underTest1.doArithmetic(Sums.Operator.Add, underTest2);
+
+            expect(result.toString()).toBe("13");
+        });
+
+        it("it adds long numbers", function() {
+            const underTest1 = new Sums.Operand();
+            const underTest2 = new Sums.Operand();
+
+            for (let i = 0; i < 20; i++) {
+                underTest1.prependDigit(6);
+                underTest2.prependDigit(7);
+            }
+
+            const result = underTest1.doArithmetic(Sums.Operator.Add, underTest2);
+
+            expect(result.toString()).toBe("144444444444444444443");
+        });
+
+        it("it subtracts short numbers", function() {
+            const underTest1 = new Sums.Operand(7);
+            const underTest2 = new Sums.Operand(6);
+
+            const result = underTest1.doArithmetic(Sums.Operator.Subtract, underTest2);
+
+            expect(result.toString()).toBe("1");
+        });
+
+        it("it subtracts long numbers", function() {
+            const underTest1 = new Sums.Operand();
+            const underTest2 = new Sums.Operand();
+
+            for (let i = 0; i < 19; i++) {
+                underTest1.prependDigit(7);
+                underTest2.prependDigit(6);
+            }
+            underTest1.prependDigit(8);
+            underTest2.prependDigit(6);
+
+            const result = underTest1.doArithmetic(Sums.Operator.Subtract, underTest2);
+
+            expect(result.toString()).toBe("21111111111111111111");
+        });
+    });
 });
