@@ -45,7 +45,7 @@ describe("problemSetGenerator", function() {
             const sum = underTest.getRandomSums(1, Sums.Operator.Add, 100, 100, false)[0];
 
             for (let i = 0; i < 100; i++) {
-                expect(sum.operand1[i] + sum.operand2[i]).toBeLessThan(10);
+                expect(sum.operand1.getDigitAt(i) + sum.operand2.getDigitAt(i)).toBeLessThan(10);
             }
         });
 
@@ -57,7 +57,7 @@ describe("problemSetGenerator", function() {
 
             let passCaseFound = false;
             for (let i = 0; i < 100; i++) {
-                if (sum.operand1[i] + sum.operand2[i] >= 10) {
+                if (sum.operand1.getDigitAt(i) + sum.operand2.getDigitAt(i) >= 10) {
                     passCaseFound = true;
                     break;
                 }
@@ -94,7 +94,7 @@ describe("problemSetGenerator", function() {
                 const sums = underTest.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1);
 
                 for (const sum of sums) {
-                    foundSums[sum.operand1[0]][sum.operand2[0]] = true;
+                    foundSums[sum.operand1.getDigitAt(0)][sum.operand2.getDigitAt(0)] = true;
                 }
 
                 let allSumsFound = true;
@@ -114,8 +114,8 @@ describe("problemSetGenerator", function() {
                 let expectedOperand2: number = 0;
 
                 for (const sum of sums) {
-                    expect(sum.operand1[0]).toBe(expectedOperand1);
-                    expect(sum.operand2[0]).toBe(expectedOperand2);
+                    expect(sum.operand1.getDigitAt(0)).toBe(expectedOperand1);
+                    expect(sum.operand2.getDigitAt(0)).toBe(expectedOperand2);
 
                     expectedOperand2++;
                     if (expectedOperand2 > 9) {
@@ -133,8 +133,8 @@ describe("problemSetGenerator", function() {
                 let expectedOperand2: number = 9;
 
                 for (const sum of sums) {
-                    expect(sum.operand1[0]).toBe(expectedOperand1);
-                    expect(sum.operand2[0]).toBe(expectedOperand2);
+                    expect(sum.operand1.getDigitAt(0)).toBe(expectedOperand1);
+                    expect(sum.operand2.getDigitAt(0)).toBe(expectedOperand2);
 
                     expectedOperand2--;
                     if (expectedOperand2 < 0) {
@@ -153,8 +153,8 @@ describe("problemSetGenerator", function() {
                     const sums = underTest.getSingleDigitAdditions(Sums.Ordering.Random);
 
                     // Check that 0 + 0 isn't the first or last sum
-                    if ((sums[0].operand1[0] !== 0 || sums[0].operand2[0] !== 0) &&
-                        (sums[99].operand1[0] !== 0 || sums[99].operand2[0] !== 0)) {
+                    if ((sums[0].operand1.getDigitAt(0) !== 0 || sums[0].operand2.getDigitAt(0) !== 0) &&
+                        (sums[99].operand1.getDigitAt(0) !== 0 || sums[99].operand2.getDigitAt(0) !== 0)) {
                         passCaseFound = true;
                         break;
                     }

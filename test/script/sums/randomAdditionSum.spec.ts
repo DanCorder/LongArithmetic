@@ -32,8 +32,8 @@ describe("RandomAdditionSum", function() {
                 // Digits are random. Assume that 100 iterations is enough to get an example failure
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(2, 2, false);
-                    expect(underTest.operand1[0] + underTest.operand2[0]).toBeLessThan(10);
-                    expect(underTest.operand1[1] + underTest.operand2[1]).toBeLessThan(10);
+                    expect(underTest.operand1.getDigitAt(0) + underTest.operand2.getDigitAt(0)).toBeLessThan(10);
+                    expect(underTest.operand1.getDigitAt(1) + underTest.operand2.getDigitAt(1)).toBeLessThan(10);
                 }
             });
 
@@ -41,8 +41,8 @@ describe("RandomAdditionSum", function() {
                 // Digits are random. Assume that 100 is enough to get an example failure
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(1, 1, false);
-                    expect(underTest.operand1[0]).not.toBe(0);
-                    expect(underTest.operand2[0]).not.toBe(0);
+                    expect(underTest.operand1.getDigitAt(0)).not.toBe(0);
+                    expect(underTest.operand2.getDigitAt(0)).not.toBe(0);
                 }
             });
         });
@@ -52,8 +52,8 @@ describe("RandomAdditionSum", function() {
             // Digits are random. Assume that 100 is enough to get an example failure
             for (let i = 0; i < 100; i++) {
                 const underTest = new Sums.RandomAdditionSum(2, 3, false);
-                expect(underTest.operand1[0] + underTest.operand2[0]).toBeLessThan(10);
-                expect(underTest.operand1[1] + underTest.operand2[1]).toBeLessThan(10);
+                expect(underTest.operand1.getDigitAt(0) + underTest.operand2.getDigitAt(0)).toBeLessThan(10);
+                expect(underTest.operand1.getDigitAt(1) + underTest.operand2.getDigitAt(1)).toBeLessThan(10);
             }
             });
 
@@ -61,8 +61,8 @@ describe("RandomAdditionSum", function() {
                 // Digits are random. Assume that 100 is enough to get an example failure
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(2, 3, false);
-                    expect(underTest.operand1[1]).not.toBe(0);
-                    expect(underTest.operand2[2]).not.toBe(0);
+                    expect(underTest.operand1.getDigitAt(1)).not.toBe(0);
+                    expect(underTest.operand2.getDigitAt(2)).not.toBe(0);
                 }
             });
         });
@@ -72,8 +72,8 @@ describe("RandomAdditionSum", function() {
             // Digits are random. Assume that 100 is enough to get an example failure
             for (let i = 0; i < 100; i++) {
                 const underTest = new Sums.RandomAdditionSum(3, 2, false);
-                expect(underTest.operand1[0] + underTest.operand2[0]).toBeLessThan(10);
-                expect(underTest.operand1[1] + underTest.operand2[1]).toBeLessThan(10);
+                expect(underTest.operand1.getDigitAt(0) + underTest.operand2.getDigitAt(0)).toBeLessThan(10);
+                expect(underTest.operand1.getDigitAt(1) + underTest.operand2.getDigitAt(1)).toBeLessThan(10);
             }
             });
 
@@ -81,8 +81,8 @@ describe("RandomAdditionSum", function() {
                 // Digits are random. Assume that 100 is enough to get an example failure
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(3, 2, false);
-                    expect(underTest.operand1[2]).not.toBe(0);
-                    expect(underTest.operand2[1]).not.toBe(0);
+                    expect(underTest.operand1.getDigitAt(2)).not.toBe(0);
+                    expect(underTest.operand2.getDigitAt(1)).not.toBe(0);
                 }
             });
         });
@@ -95,7 +95,7 @@ describe("RandomAdditionSum", function() {
                 let passCaseFound = false;
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(1, 1, true);
-                    if (underTest.operand1[0] + underTest.operand2[0] >= 10) {
+                    if (underTest.operand1.getDigitAt(0) + underTest.operand2.getDigitAt(0) >= 10) {
                         passCaseFound = true;
                         break;
                     }
@@ -108,7 +108,7 @@ describe("RandomAdditionSum", function() {
                 let passCaseFound = false;
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(2, 2, true);
-                    if (underTest.operand1[0] + underTest.operand2[0] >= 10) {
+                    if (underTest.operand1.getDigitAt(0) + underTest.operand2.getDigitAt(0) >= 10) {
                         passCaseFound = true;
                         break;
                     }
@@ -120,8 +120,8 @@ describe("RandomAdditionSum", function() {
                 // Digits are random. Assume that 100 is enough to get a failure
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(1, 1, true);
-                    expect(underTest.operand1[0]).not.toBe(0);
-                    expect(underTest.operand2[0]).not.toBe(0);
+                    expect(underTest.operand1.getDigitAt(0)).not.toBe(0);
+                    expect(underTest.operand2.getDigitAt(0)).not.toBe(0);
                 }
             });
         });
@@ -132,7 +132,7 @@ describe("RandomAdditionSum", function() {
                 let passCaseFound = false;
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(1, 2, true);
-                    if (underTest.operand1[0] + underTest.operand2[0] >= 10) {
+                    if (underTest.operand1.getDigitAt(0) + underTest.operand2.getDigitAt(0) >= 10) {
                         passCaseFound = true;
                         break;
                     }
@@ -145,7 +145,7 @@ describe("RandomAdditionSum", function() {
                 let passCaseFound = false;
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(2, 3, true);
-                    if (underTest.operand1[0] + underTest.operand2[0] >= 10) {
+                    if (underTest.operand1.getDigitAt(0) + underTest.operand2.getDigitAt(0) >= 10) {
                         passCaseFound = true;
                         break;
                     }
@@ -157,8 +157,8 @@ describe("RandomAdditionSum", function() {
                 // Digits are random. Assume that 100 is enough to get a failure
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(1, 2, true);
-                    expect(underTest.operand1[0]).not.toBe(0);
-                    expect(underTest.operand2[1]).not.toBe(0);
+                    expect(underTest.operand1.getDigitAt(0)).not.toBe(0);
+                    expect(underTest.operand2.getDigitAt(1)).not.toBe(0);
                 }
             });
         });
@@ -169,7 +169,7 @@ describe("RandomAdditionSum", function() {
                 let passCaseFound = false;
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(2, 1, true);
-                    if (underTest.operand1[0] + underTest.operand2[0] >= 10) {
+                    if (underTest.operand1.getDigitAt(0) + underTest.operand2.getDigitAt(0) >= 10) {
                         passCaseFound = true;
                         break;
                     }
@@ -182,7 +182,7 @@ describe("RandomAdditionSum", function() {
                 let passCaseFound = false;
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(3, 2, true);
-                    if (underTest.operand1[0] + underTest.operand2[0] >= 10) {
+                    if (underTest.operand1.getDigitAt(0) + underTest.operand2.getDigitAt(0) >= 10) {
                         passCaseFound = true;
                         break;
                     }
@@ -194,8 +194,8 @@ describe("RandomAdditionSum", function() {
                 // Digits are random. Assume that 100 is enough to get a failure
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomAdditionSum(2, 1, true);
-                    expect(underTest.operand1[1]).not.toBe(0);
-                    expect(underTest.operand2[0]).not.toBe(0);
+                    expect(underTest.operand1.getDigitAt(1)).not.toBe(0);
+                    expect(underTest.operand2.getDigitAt(0)).not.toBe(0);
                 }
             });
         });

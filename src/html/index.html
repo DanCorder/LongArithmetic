@@ -27,11 +27,11 @@
         <div data-bind="foreach: sums" id="sums">
             <div class="sum">
                 <div class="row">
-                    <!-- ko foreach: operand1.slice(0).reverse() --><!-- ko text: $data --><!-- /ko --><!-- /ko -->
+                    <!-- ko text: operand1.toString() --><!-- /ko -->
                 </div>
                 <div class="row bottomRow">
                     <!-- ko text: Sums.operatorToSymbol(operator) --><!-- /ko -->
-                    <!-- ko foreach: operand2.slice(0).reverse() --><!-- ko text: $data --><!-- /ko --><!-- /ko -->
+                    <!-- ko text: operand2.toString() --><!-- /ko -->
                 </div>
             </div>
         </div>

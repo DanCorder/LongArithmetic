@@ -3,23 +3,25 @@
 
 namespace Sums {
     export abstract class RandomSum extends Sum {
-        constructor(operator: Operator, operand1: number[], operand2: number[]) {
+        constructor(operator: Operator, operand1: Operand, operand2: Operand) {
             super(operator, operand1, operand2);
         }
 
-        protected static appendDigitBetween(lowerBound: number, upperBound: number, arrayToFill: number[]) {
-            this.appendDigitsBetween(lowerBound, upperBound, arrayToFill, 1);
+        protected static appendDigitBetween(lowerBound: number, upperBound: number, operand: Operand) {
+            this.appendDigitsBetween(lowerBound, upperBound, operand, 1);
         }
 
-        protected static appendDigitsBetween(lowerBound: number, upperBound: number, arrayToFill: number[], numberOfDigits: number) {
+        protected static appendDigitsBetween(lowerBound: number, upperBound: number, operand: Operand, numberOfDigits: number) {
             for (let i = 0; i < numberOfDigits; i++) {
-                arrayToFill.push(Utils.Random.getIntBetween(lowerBound, upperBound));
+                operand.push(Utils.Random.getIntBetween(lowerBound, upperBound));
             }
         }
 
-        protected static generateOperand(arrayToFill: number[], numberOfDigits: number) {
-            this.appendDigitsBetween(0, 9, arrayToFill, numberOfDigits - 1);
-            this.appendDigitBetween(1, 9, arrayToFill);
+        protected static generateOperand(numberOfDigits: number): Operand {
+            const operand = new Operand();
+            this.appendDigitsBetween(0, 9, operand, numberOfDigits - 1);
+            this.appendDigitBetween(1, 9, operand);
+            return operand;
         }
     }
 }

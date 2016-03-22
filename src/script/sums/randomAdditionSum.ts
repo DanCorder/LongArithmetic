@@ -5,19 +5,17 @@ namespace Sums {
     export class RandomAdditionSum extends RandomSum {
 
         constructor(operand1Length: number, operand2Length: number, allowCarrying: boolean) {
-            const operand1: number[] = [];
-            const operand2: number[] = [];
-
-            RandomSum.generateOperand(operand1, operand1Length);
+            const operand1 = RandomSum.generateOperand(operand1Length);
+            let operand2 = new Operand();
 
             if (allowCarrying) {
-                RandomSum.generateOperand(operand2, operand2Length);
+                operand2 = RandomSum.generateOperand(operand2Length);
             } else {
                 // The leading digit of an operand can't be 0, so make sure the digit in operand1
                 // that matches the leading digit of operand2 isn't 9.
                 if (operand1Length >= operand2Length) {
                     const lowerLimit = operand1Length === operand2Length ? 1 : 0;
-                    operand1[operand2Length - 1] = Utils.Random.getIntBetween(lowerLimit, 8);
+                    operand1.setDigitAt(operand2Length - 1, Utils.Random.getIntBetween(lowerLimit, 8));
                 }
 
                 for (let i = 0; i < operand2Length - 1; i++) {
@@ -29,8 +27,8 @@ namespace Sums {
             super(Operator.Add, operand1, operand2);
         }
 
-        private static getDigitOrZero(array: number[], position: number): number {
-            return array.length <= position ? 0 : array[position];
+        private static getDigitOrZero(operand: Operand, position: number): number {
+            return operand.length <= position ? 0 : operand.getDigitAt(position);
         }
     }
 }

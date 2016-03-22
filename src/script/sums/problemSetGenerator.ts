@@ -33,7 +33,11 @@ namespace Sums {
 
             for (let i = 0; i < 10; i++) {
                 for (let j = 0; j < 10; j++) {
-                    sums.push(new Sum(Operator.Add, [i], [j]));
+                    const operand1 = new Operand();
+                    operand1.push(i);
+                    const operand2 = new Operand();
+                    operand2.push(j);
+                    sums.push(new Sum(Operator.Add, operand1, operand2));
                 }
             }
 
