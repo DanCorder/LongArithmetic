@@ -12,7 +12,7 @@ namespace Sums {
             this.numberArray.push(digit);
         }
 
-        unshift(digit: number) {
+        appendDigit(digit: number) {
             this.numberArray.unshift(digit);
         }
 

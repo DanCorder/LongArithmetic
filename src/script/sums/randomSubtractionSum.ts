@@ -40,10 +40,10 @@ namespace Sums {
                     // The first digit cannot be 0
                     const lowerLimit = i === reference.length - 1 ? 1 : 0;
                     const targetDigit = Utils.Random.getIntBetween(lowerLimit, reference.getDigitAt(i));
-                    target.unshift(targetDigit);
+                    target.appendDigit(targetDigit);
                     areEqual = reference.getDigitAt(i) === targetDigit;
                 } else {
-                    target.unshift(Utils.Random.getIntBetween(0, 9));
+                    target.appendDigit(Utils.Random.getIntBetween(0, 9));
                 }
             }
 

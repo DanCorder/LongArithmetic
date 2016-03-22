@@ -50,14 +50,14 @@ describe("operand", function() {
         expect(underTest.getDigitAt(2)).toBe(1);
     });
 
-    it("unshifts digits", function() {
+    it("appendDigits digits", function() {
         const underTest = new Sums.Operand();
 
-        underTest.unshift(3);
+        underTest.appendDigit(3);
         expect(underTest.toString()).toBe("3");
-        underTest.unshift(2);
+        underTest.appendDigit(2);
         expect(underTest.toString()).toBe("32");
-        underTest.unshift(1);
+        underTest.appendDigit(1);
         expect(underTest.toString()).toBe("321");
     });
 
