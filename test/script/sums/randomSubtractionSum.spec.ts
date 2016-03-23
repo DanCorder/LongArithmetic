@@ -74,7 +74,7 @@ describe("RandomSubtractionSum", function() {
                 for (let i = 0; i < 100; i++) {
                     const underTest = new Sums.RandomSubtractionSum(2, 3, false);
                     expect(underTest.operand1.getDigitAt(1)).not.toBe(0);
-                    expect(underTest.operand2.getDigitAt(2)).not.toBe(0);
+                    expect(underTest.operand2.getDigitAt(1)).not.toBe(0);
                 }
             });
         });
