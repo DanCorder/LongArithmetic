@@ -7,11 +7,11 @@ namespace Sums {
             super(operator, operand1, operand2);
         }
 
-        protected static appendDigitBetween(lowerBound: number, upperBound: number, operand: Operand) {
-            this.appendDigitsBetween(lowerBound, upperBound, operand, 1);
+        protected static prependDigitBetween(lowerBound: number, upperBound: number, operand: Operand) {
+            this.prependDigitsBetween(lowerBound, upperBound, operand, 1);
         }
 
-        protected static appendDigitsBetween(lowerBound: number, upperBound: number, operand: Operand, numberOfDigits: number) {
+        protected static prependDigitsBetween(lowerBound: number, upperBound: number, operand: Operand, numberOfDigits: number) {
             for (let i = 0; i < numberOfDigits; i++) {
                 operand.prependDigit(Utils.Random.getIntBetween(lowerBound, upperBound));
             }
@@ -19,8 +19,8 @@ namespace Sums {
 
         protected static generateOperand(numberOfDigits: number): Operand {
             const operand = new Operand();
-            this.appendDigitsBetween(0, 9, operand, numberOfDigits - 1);
-            this.appendDigitBetween(1, 9, operand);
+            this.prependDigitsBetween(0, 9, operand, numberOfDigits - 1);
+            this.prependDigitBetween(1, 9, operand);
             return operand;
         }
     }

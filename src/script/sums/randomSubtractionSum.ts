@@ -23,9 +23,9 @@ namespace Sums {
                 operand1.setDigitAt(operand2Length - 1, Utils.Random.getIntBetween(1, 9));
 
                 for (let i = 0; i < operand2Length - 1; i++) {
-                    RandomSum.appendDigitBetween(0, operand1.getDigitAt(i), operand2);
+                    RandomSum.prependDigitBetween(0, operand1.getDigitAt(i), operand2);
                 }
-                RandomSum.appendDigitBetween(1, operand1.getDigitAt(operand2Length - 1), operand2);
+                RandomSum.prependDigitBetween(1, operand1.getDigitAt(operand2Length - 1), operand2);
             }
 
             super(Operator.Subtract, operand1, operand2);
@@ -35,16 +35,17 @@ namespace Sums {
         private static generateOperandLessThan(reference: Operand): Operand {
             const target = new Operand();
             let areEqual = true;
+            // The first digit cannot be 0
+            let lowerLimit = 1;
             for (let i = reference.length - 1; i >= 0; i--) {
                 if (areEqual) {
-                    // The first digit cannot be 0
-                    const lowerLimit = i === reference.length - 1 ? 1 : 0;
                     const targetDigit = Utils.Random.getIntBetween(lowerLimit, reference.getDigitAt(i));
                     target.appendDigit(targetDigit);
                     areEqual = reference.getDigitAt(i) === targetDigit;
                 } else {
                     target.appendDigit(Utils.Random.getIntBetween(0, 9));
                 }
+                lowerLimit = 0;
             }
 
             return target;

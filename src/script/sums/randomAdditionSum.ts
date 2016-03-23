@@ -19,16 +19,12 @@ namespace Sums {
                 }
 
                 for (let i = 0; i < operand2Length - 1; i++) {
-                    RandomSum.appendDigitBetween(0, 9 - RandomAdditionSum.getDigitOrZero(operand1, i), operand2);
+                    RandomSum.prependDigitBetween(0, 9 - operand1.getDigitAt(i), operand2);
                 }
-                RandomSum.appendDigitBetween(1, 9 - RandomAdditionSum.getDigitOrZero(operand1, operand2Length - 1), operand2);
+                RandomSum.prependDigitBetween(1, 9 - operand1.getDigitAt(operand2Length - 1), operand2);
             }
 
             super(Operator.Add, operand1, operand2);
-        }
-
-        private static getDigitOrZero(operand: Operand, position: number): number {
-            return operand.length <= position ? 0 : operand.getDigitAt(position);
         }
     }
 }

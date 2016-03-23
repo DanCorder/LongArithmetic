@@ -24,6 +24,9 @@ namespace Sums {
         }
 
         getDigitAt(index: number): number {
+            if (index >= this.numberArray.length) {
+                return 0;
+            }
             return this.numberArray[index];
         }
 
