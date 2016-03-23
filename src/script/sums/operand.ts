@@ -37,7 +37,7 @@ namespace Sums {
 
             let resultValue: BigInteger;
 
-            switch(operator) {
+            switch (operator) {
                 case Operator.Add:
                     resultValue = value.add(otherValue);
                     break;

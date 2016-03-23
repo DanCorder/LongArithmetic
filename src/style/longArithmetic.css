@@ -35,7 +35,7 @@ input[type=text] {
 .sum
 {
     font-size: 30px;
-    margin-bottom: 2em;
+    margin-bottom: 0.75em;
     margin-right: 1em;
     display: inline-block;
 }

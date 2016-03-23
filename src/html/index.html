@@ -23,6 +23,10 @@
             <li><label for="sum-ordering">Ordering:</label><select id="sum-ordering" data-bind="value: ordering, options: allowedOrderings, optionsText: function(item) { return Sums.orderingToText(item); }"></select></li>
             <li><button title="Generate Sums" onclick="viewModel.generateSingleDigitSums();" >Generate Sums</button></li>
         </ul>
+        <ul class="options">
+            <li><strong>Options</strong></li>
+            <li><label for="show-solutions">Show answers:</label><input id="show-solutions" type="checkbox" data-bind="checked: showSolutions" /></li>
+        </ul>
 
         <div data-bind="foreach: sums" id="sums">
             <div class="sum">
@@ -32,6 +36,8 @@
                 <div class="row bottomRow">
                     <!-- ko text: Sums.operatorToSymbol(operator) --><!-- /ko -->
                     <!-- ko text: operand2.toString() --><!-- /ko -->
+                </div>
+                <div class="row" data-bind="html: $root.showSolutions() ? solution.toString() : '&nbsp;'">
                 </div>
             </div>
         </div>
