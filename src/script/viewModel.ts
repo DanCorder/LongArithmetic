@@ -37,7 +37,7 @@ namespace LongArithmatic {
         }
 
         public generateSingleDigitSums() {
-            this.sums(this.problemSetGenerator.getSingleDigitAdditions(this.ordering()));
+            this.sums(this.problemSetGenerator.getSingleDigitSums(this.sumType(), this.ordering()));
         }
     }
 }

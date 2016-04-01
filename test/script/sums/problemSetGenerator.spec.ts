@@ -70,7 +70,7 @@ describe("problemSetGenerator", function() {
         it("generates single digit sums", function() {
             const underTest = new Sums.ProblemSetGenerator();
 
-            const sums = underTest.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1);
+            const sums = underTest.getSingleDigitSums(Sums.Operator.Add, Sums.Ordering.AscendingOperand1);
 
             for (const sum of sums) {
                 expect(sum.operand1.length).toBe(1);
@@ -82,7 +82,7 @@ describe("problemSetGenerator", function() {
             it("generates 100 sums", function() {
                 const underTest = new Sums.ProblemSetGenerator();
 
-                const sums = underTest.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1);
+                const sums = underTest.getSingleDigitSums(Sums.Operator.Add, Sums.Ordering.AscendingOperand1);
 
                 expect(sums.length).toBe(100);
             });
@@ -91,7 +91,7 @@ describe("problemSetGenerator", function() {
                 const foundSums: boolean[][] = [[], [], [], [], [], [], [], [], [], []];
                 const underTest = new Sums.ProblemSetGenerator();
 
-                const sums = underTest.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1);
+                const sums = underTest.getSingleDigitSums(Sums.Operator.Add, Sums.Ordering.AscendingOperand1);
 
                 for (const sum of sums) {
                     foundSums[sum.operand1.getDigitAt(0)][sum.operand2.getDigitAt(0)] = true;
@@ -108,7 +108,7 @@ describe("problemSetGenerator", function() {
 
             it("generates sums in ascending order", function() {
                 const underTest = new Sums.ProblemSetGenerator();
-                const sums = underTest.getSingleDigitAdditions(Sums.Ordering.AscendingOperand1);
+                const sums = underTest.getSingleDigitSums(Sums.Operator.Add, Sums.Ordering.AscendingOperand1);
 
                 let expectedOperand1: number = 0;
                 let expectedOperand2: number = 0;
@@ -127,7 +127,7 @@ describe("problemSetGenerator", function() {
 
             it("generates sums in descending order", function() {
                 const underTest = new Sums.ProblemSetGenerator();
-                const sums = underTest.getSingleDigitAdditions(Sums.Ordering.DescendingOperand1);
+                const sums = underTest.getSingleDigitSums(Sums.Operator.Add, Sums.Ordering.DescendingOperand1);
 
                 let expectedOperand1: number = 9;
                 let expectedOperand2: number = 9;
@@ -150,7 +150,7 @@ describe("problemSetGenerator", function() {
                 // Shuffling is random so do this test up to two times.
                 let passCaseFound = false;
                 for (let i = 0; i < 2; i++) {
-                    const sums = underTest.getSingleDigitAdditions(Sums.Ordering.Random);
+                    const sums = underTest.getSingleDigitSums(Sums.Operator.Add, Sums.Ordering.Random);
 
                     // Check that 0 + 0 isn't the first or last sum
                     if ((sums[0].operand1.getDigitAt(0) !== 0 || sums[0].operand2.getDigitAt(0) !== 0) &&

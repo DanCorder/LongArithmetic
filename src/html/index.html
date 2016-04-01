@@ -14,7 +14,7 @@
             <label class="tab" for="tab1">Random Sums</label>
 
             <input class="tab-control" id="tab2" type="radio" name="tabs" />
-            <label class="tab" for="tab2">Single Digit Addition</label>
+            <label class="tab" for="tab2">Single Digit Sums</label>
 
             <div class="content">
                 <ul id="content1" class="tab-content">
@@ -22,7 +22,6 @@
                     <li><label for="digits-top">Number of digits (top):</label><input id="digits-top" type="text" data-bind="textInput: digitsTop" /></li>
                     <li><label for="digits-bottom">Number of digits (bottom):</label><input id="digits-bottom" type="text" data-bind="textInput: digitsBottom" /></li>
                     <li><label for="allow-carrying">Allow carrying:</label><input id="allow-carrying" type="checkbox" data-bind="checked: allowCarrying" /></li>
-                    <li><label for="sum-type">Sum type:</label><select id="sum-type" data-bind="value: sumType, options: allowedSumTypes, optionsText: function(item) { return Sums.Operator[item]; }"></select></li>
                     <li><button title="Generate Sums" onclick="viewModel.generateRandomSums();" >Generate Sums</button></li>
                 </ul>
                 <ul id="content2" class="tab-content">
@@ -30,6 +29,7 @@
                     <li><button title="Generate Sums" onclick="viewModel.generateSingleDigitSums();" >Generate Sums</button></li>
                 </ul>
                 <ul>
+                    <li><label for="sum-type">Sum type:</label><select id="sum-type" data-bind="value: sumType, options: allowedSumTypes, optionsText: function(item) { return Sums.Operator[item]; }"></select></li>
                     <li><label for="show-solutions">Show answers:</label><input id="show-solutions" type="checkbox" data-bind="checked: showSolutions" /></li>
                 </ul>
             </div>

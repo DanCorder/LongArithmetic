@@ -28,7 +28,7 @@ namespace Sums {
             return sums;
         }
 
-        getSingleDigitAdditions(ordering: Ordering): Sum[] {
+        getSingleDigitSums(type: Operator, ordering: Ordering): Sum[] {
             const sums: Sum[] = [];
 
             for (let i = 0; i < 10; i++) {
