@@ -2,7 +2,7 @@
 /// <reference path="../../../src/script/Sums/operand.ts" />
 
 describe("operand", function() {
-    describe("operand", function() {
+    describe("construction", function() {
         it("can be created from a digit", function() {
             expect(new Sums.Operand(3).toString()).toBe("3");
         });
@@ -13,7 +13,7 @@ describe("operand", function() {
             expect(new Sums.Operand().toString()).toBe("");
         });
 
-        it("it writes digits in the correct order", function() {
+        it("writes digits in the correct order", function() {
             const underTest = new Sums.Operand();
 
             underTest.prependDigit(2);
@@ -23,7 +23,7 @@ describe("operand", function() {
         });
     });
 
-    it("it overwrites digits", function() {
+    it("overwrites digits", function() {
         const underTest = new Sums.Operand();
 
         underTest.prependDigit(3);
@@ -38,7 +38,7 @@ describe("operand", function() {
         expect(underTest.toString()).toBe("456");
     });
 
-    it("it gets digits", function() {
+    it("gets digits", function() {
         const underTest = new Sums.Operand();
 
         underTest.prependDigit(3);
@@ -62,13 +62,13 @@ describe("operand", function() {
     });
 
     describe("reporting length", function() {
-        it("it reports 0 correctly", function() {
+        it("reports 0 correctly", function() {
             const underTest = new Sums.Operand();
 
             expect(underTest.length).toBe(0);
         });
 
-        it("it reports 0 correctly", function() {
+        it("reports 1 correctly", function() {
             const underTest = new Sums.Operand();
 
             underTest.prependDigit(1);
@@ -76,7 +76,7 @@ describe("operand", function() {
             expect(underTest.length).toBe(1);
         });
 
-        it("it reports 0 correctly", function() {
+        it("reports 2 correctly", function() {
             const underTest = new Sums.Operand();
 
             underTest.prependDigit(2);
@@ -87,7 +87,7 @@ describe("operand", function() {
     });
 
     describe("arithmetic", function() {
-        it("it adds short numbers", function() {
+        it("adds short numbers", function() {
             const underTest1 = new Sums.Operand(6);
             const underTest2 = new Sums.Operand(7);
 
@@ -96,7 +96,7 @@ describe("operand", function() {
             expect(result.toString()).toBe("13");
         });
 
-        it("it adds long numbers", function() {
+        it("adds long numbers", function() {
             const underTest1 = new Sums.Operand();
             const underTest2 = new Sums.Operand();
 
@@ -110,7 +110,7 @@ describe("operand", function() {
             expect(result.toString()).toBe("144444444444444444443");
         });
 
-        it("it subtracts short numbers", function() {
+        it("subtracts short numbers", function() {
             const underTest1 = new Sums.Operand(7);
             const underTest2 = new Sums.Operand(6);
 
@@ -119,7 +119,7 @@ describe("operand", function() {
             expect(result.toString()).toBe("1");
         });
 
-        it("it subtracts long numbers", function() {
+        it("subtracts long numbers", function() {
             const underTest1 = new Sums.Operand();
             const underTest2 = new Sums.Operand();
 
