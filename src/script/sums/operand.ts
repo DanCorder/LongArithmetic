@@ -4,6 +4,7 @@
 namespace Sums {
     export class Operand {
         private numberArray: number[] = [];
+        isNegative: boolean = false;
 
         constructor(digit: number = undefined) {
             if (digit !== undefined) {
@@ -51,6 +52,11 @@ namespace Sums {
 
             const result = new Operand();
 
+            if (resultValue.isNegative()) {
+                result.isNegative = true;
+                resultValue = resultValue.multiply(-1);
+            }
+
             for (let char of resultValue.toString()) {
                 result.appendDigit(parseInt(char));
             }
@@ -65,25 +71,15 @@ namespace Sums {
                 stringValue = digit.toString() + stringValue;
             }
 
-            return stringValue;
+            return (this.isNegative ? "-" : "") + stringValue;
         }
 
         // Return negative if this Operand is less than other, positive if other is less than this Operand, and 0 if they're equal.
         compare(other: Operand): number {
-            const operand1 = this.numberArray;
-            const operand2 = other.numberArray;
+            const value = bigInt(this.toString());
+            const otherValue = bigInt(other.toString());
 
-            if (operand1.length !== operand2.length) {
-                return operand1.length - operand2.length;
-            }
-
-            for (let i = operand1.length - 1; i >= 0; i--) {
-                if (operand1[i] !== operand2[i]) {
-                    return operand1[i] - operand2[i];
-                }
-            }
-
-            return 0;
+            return value.compare(otherValue);
         }
     }
 }

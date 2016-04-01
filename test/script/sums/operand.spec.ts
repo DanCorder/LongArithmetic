@@ -21,6 +21,16 @@ describe("operand", function() {
 
             expect(underTest.toString()).toBe("12");
         });
+
+        it("writes negative numbers correctly", function() {
+            const underTest = new Sums.Operand();
+
+            underTest.prependDigit(2);
+            underTest.prependDigit(1);
+            underTest.isNegative = true;
+
+            expect(underTest.toString()).toBe("-12");
+        });
     });
 
     it("overwrites digits", function() {
@@ -133,6 +143,15 @@ describe("operand", function() {
             const result = underTest1.doArithmetic(Sums.Operator.Subtract, underTest2);
 
             expect(result.toString()).toBe("21111111111111111111");
+        });
+
+        it("subtracts numbers with negative answers", function() {
+            const underTest1 = new Sums.Operand(4);
+            const underTest2 = new Sums.Operand(6);
+
+            const result = underTest1.doArithmetic(Sums.Operator.Subtract, underTest2);
+
+            expect(result.toString()).toBe("-2");
         });
     });
 });

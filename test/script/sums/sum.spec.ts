@@ -18,5 +18,13 @@ describe("sum", function() {
 
             expect(solution.toString()).toBe("3");
         });
+
+        it("generates the correct solution for subtraction with negative answer", function() {
+            const underTest = new Sums.Sum(Sums.Operator.Subtract, new Sums.Operand(1), new Sums.Operand(6));
+
+            const solution = underTest.solution;
+
+            expect(solution.toString()).toBe("-5");
+        });
     });
 });
