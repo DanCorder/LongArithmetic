@@ -2,7 +2,7 @@
 
 namespace Sums {
     export class Sum {
-        // TODO: make readonly when new version of TypeScript is released
+        // TODO: make readonly when TypeScript 2.0 is released
         symbol: string;
         solution: Operand;
 

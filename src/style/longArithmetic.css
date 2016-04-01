@@ -11,6 +11,7 @@ ul {
 
 li {
     display: inline-block;
+    margin-right: 1em;
 }
 
 input[type=text] {
@@ -28,8 +29,40 @@ input[type=text] {
     margin-bottom: 1em;
 }
 
-.options > li {
-    margin-right: 1em;
+input.tab-control {
+    display: none;
+}
+
+.tab {
+    display: inline-block;
+    padding: 10px;
+    font-weight: 600;
+    text-align: center;
+    background: #333333;
+    color: #ffffff;
+}
+
+.tab:hover {
+    cursor: pointer;
+}
+
+input.tab-control:checked + label {
+    background: #dddddd;
+    color: #000000;
+}
+
+.content {
+    background: #dddddd;
+    padding: 10px;
+}
+
+.tab-content {
+    display: none;
+}
+
+#tab1:checked ~ .content #content1,
+#tab2:checked ~ .content #content2 {
+    display: block;
 }
 
 .sum
