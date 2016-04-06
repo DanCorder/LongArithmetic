@@ -61,7 +61,8 @@ input.tab-control:checked + label {
 }
 
 #tab1:checked ~ .content #content1,
-#tab2:checked ~ .content #content2 {
+#tab2:checked ~ .content #content2,
+#tab3:checked ~ .content #content3 {
     display: block;
 }
 

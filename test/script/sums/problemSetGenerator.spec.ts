@@ -184,4 +184,36 @@ describe("problemSetGenerator", function() {
                 )).toBeTruthy();
         });
     });
+
+    describe("generating long subtraction single column problems", function() {
+        it("generates the correct number of sums", function() {
+            const underTest = new Sums.ProblemSetGenerator();
+            const sums = underTest.getSingleColumnSubtractions(Sums.Ordering.DescendingOperand1);
+
+            // We expect 18-9, 17-9, 17-8, 16-9, 16-8, 16-7, etc down to 10-1 = 45 cases
+            // and 9-9 to 9-0 = 10 cases
+            // and 8-8 to 8-0 etc down to 0-0 = 45 cases
+            expect(sums.length).toBe(100);
+        });
+
+        it("generates sums from 18 - 9 downwards", function() {
+            const underTest = new Sums.ProblemSetGenerator();
+            const sums = underTest.getSingleColumnSubtractions(Sums.Ordering.DescendingOperand1);
+
+            let expectedOperand1 = 18;
+            let expectedOperand2 = 9;
+
+            for (const sum of sums) {
+                expect(sum.operand1.toString()).toBe(expectedOperand1.toString());
+                expect(sum.operand2.toString()).toBe(expectedOperand2.toString());
+
+                expectedOperand2--;
+
+                if (expectedOperand2 < Math.max(expectedOperand1 - 9, 0)) {
+                    expectedOperand1--;
+                    expectedOperand2 = Math.min(9, expectedOperand1);
+                }
+            }
+        });
+    });
 });

@@ -39,5 +39,9 @@ namespace LongArithmatic {
         public generateSingleDigitSums() {
             this.sums(this.problemSetGenerator.getSingleDigitSums(this.sumType(), this.ordering()));
         }
+
+        public generateSingleColumnSubtractions() {
+            this.sums(this.problemSetGenerator.getSingleColumnSubtractions(this.ordering()));
+        }
     }
 }

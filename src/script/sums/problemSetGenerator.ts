@@ -41,5 +41,23 @@ namespace Sums {
 
             return sums;
         }
+
+        // Gets all subtraction sums that might be needed when doing long subtraction with carrying:
+        // 18-9, 17-9, 17-8, 16-9, 16-8, 16-7, etc down to 0-0
+        getSingleColumnSubtractions(ordering: Ordering): Sum[] {
+            const sums: Sum[] = [];
+
+            for (let i = 18; i >= 0; i--) {
+                const upperLimit = Math.min(9, i);
+                const lowerLimit = Math.max(i - 9, 0);
+                for (let j = upperLimit; j >= lowerLimit; j--) {
+                    sums.push(new Sum(Operator.Subtract, new Operand(i), new Operand(j)));
+                }
+            }
+
+            orderSums(sums, ordering);
+
+            return sums;
+        }
     }
 }
