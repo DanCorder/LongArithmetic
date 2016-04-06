@@ -11,8 +11,8 @@ namespace LongArithmatic {
             this.sumType(Sums.Operator.Add);
             this.allowedSumTypes([ Sums.Operator.Add, Sums.Operator.Subtract ]);
 
-            this.ordering(Sums.Ordering.Random);
-            this.allowedOrderings([Sums.Ordering.Random, Sums.Ordering.AscendingOperand1, Sums.Ordering.DescendingOperand1]);
+            this.ordering(Sums.Ordering.AscendingOperand1);
+            this.allowedOrderings([Sums.Ordering.AscendingOperand1, Sums.Ordering.DescendingOperand1, Sums.Ordering.Random]);
 
             this.showSolutions(false);
 
