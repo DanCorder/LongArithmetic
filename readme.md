@@ -1,4 +1,4 @@
-# LongArithmetic [![Build Status](https://travis-ci.org/DanCorder/LongArithmetic.png)](https://travis-ci.org/DanCorder/longArithmetic)
+# LongArithmetic [![Build Status](https://travis-ci.org/DanCorder/LongArithmetic.png)](https://travis-ci.org/DanCorder/LongArithmetic)
 
 JavaScript based website to generate long arithmetic exercises for printing. Code is entirely client side so you can host this site anywhere that you can put up a static web page.
 
