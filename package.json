@@ -25,5 +25,8 @@
     "clean:dist": "rimraf dist",
     "clean:test": "rimraf test/script/*.js && rimraf test/script/*.js.map",
     "clean": "npm run clean:dist && npm run clean:test"
+  },
+  "dependencies": {
+    "big-integer": "^1.6.15"
   }
 }
