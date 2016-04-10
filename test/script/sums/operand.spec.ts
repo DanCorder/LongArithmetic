@@ -1,5 +1,5 @@
 /// <reference path="../typings/main.d.ts" />
-/// <reference path="../../../src/script/Sums/operand.ts" />
+/// <reference path="../../../src/script/sums/operand.ts" />
 
 describe("operand", function() {
     describe("construction", function() {

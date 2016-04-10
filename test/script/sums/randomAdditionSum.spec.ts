@@ -1,6 +1,6 @@
 /// <reference path="../typings/main.d.ts" />
-/// <reference path="../../../src/script/Sums/randomAdditionSum.ts" />
-/// <reference path="../../../src/script/Sums/operator.ts" />
+/// <reference path="../../../src/script/sums/randomAdditionSum.ts" />
+/// <reference path="../../../src/script/sums/operator.ts" />
 
 describe("RandomAdditionSum", function() {
     it("uses the correct operator", function() {

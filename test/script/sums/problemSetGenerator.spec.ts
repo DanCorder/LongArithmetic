@@ -1,7 +1,7 @@
 /// <reference path="../typings/main.d.ts" />
-/// <reference path="../../../src/script/Sums/problemSetGenerator.ts" />
-/// <reference path="../../../src/script/Sums/operator.ts" />
-/// <reference path="../../../src/script/Sums/ordering.ts" />
+/// <reference path="../../../src/script/sums/problemSetGenerator.ts" />
+/// <reference path="../../../src/script/sums/operator.ts" />
+/// <reference path="../../../src/script/sums/ordering.ts" />
 
 describe("problemSetGenerator", function() {
     describe("random sums", function() {
