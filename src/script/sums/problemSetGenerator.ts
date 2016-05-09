@@ -59,5 +59,19 @@ namespace Sums {
 
             return sums;
         }
+
+        getTimesTablesSums(numbersToMultiply: number[], maxMultiples: number, ordering: Ordering): Sum[] {
+            const sums: Sum[] = [];
+
+            for (let numberToMultiply of numbersToMultiply) {
+                for (let i = 1; i <= maxMultiples; i++) {
+                    sums.push(new Sum(Operator.Multiply, new Operand(i), new Operand(numberToMultiply)));
+                }
+            }
+
+            orderSums(sums, ordering);
+
+            return sums;
+        }
     }
 }

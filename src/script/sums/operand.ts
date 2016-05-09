@@ -48,6 +48,9 @@ namespace Sums {
                 case Operator.Subtract:
                     resultValue = value.subtract(otherValue);
                     break;
+                case Operator.Multiply:
+                    resultValue = value.multiply(otherValue);
+                    break;
                 default:
                     throw "Unsupported operator: " + operatorToSymbol(operator);
             }

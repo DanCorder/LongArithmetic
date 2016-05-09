@@ -15,8 +15,17 @@ namespace LongArithmatic {
         public sumType = ko.observable<Sums.Operator>(Sums.Operator.Add);
         public allowedSumTypes = ko.observableArray<Sums.Operator>([ Sums.Operator.Add, Sums.Operator.Subtract ]);
 
+        public timesTables = ko.observableArray<number>([]);
+
         public ordering = ko.observable<Sums.Ordering>(Sums.Ordering.AscendingOperand1);
-        public allowedOrderings = ko.observableArray<Sums.Ordering>([Sums.Ordering.AscendingOperand1, Sums.Ordering.DescendingOperand1, Sums.Ordering.Random]);
+        public allowedOrderings = ko.observableArray<Sums.Ordering>([Sums.Ordering.AscendingOperand1,
+                                                                     Sums.Ordering.DescendingOperand1,
+                                                                     Sums.Ordering.Random]);
+
+        public timesTableOrdering = ko.observable<Sums.Ordering>(Sums.Ordering.AscendingOperand2);
+        public allowedTimesTableOrderings = ko.observableArray<Sums.Ordering>([Sums.Ordering.AscendingOperand2,
+                                                                               Sums.Ordering.DescendingOperand2,
+                                                                               Sums.Ordering.Random]);
 
         public showSolutions = ko.observable<boolean>(false);
 
@@ -30,6 +39,10 @@ namespace LongArithmatic {
 
         public generateSingleColumnSubtractions() {
             this.sums(this.problemSetGenerator.getSingleColumnSubtractions(this.ordering()));
+        }
+
+        public generateTimesTableSums() {
+            this.sums(this.problemSetGenerator.getTimesTablesSums(this.timesTables(), 10, this.timesTableOrdering()));
         }
     }
 }

@@ -154,6 +154,15 @@ describe("operand", function() {
             expect(result.toString()).toBe("-2");
         });
 
+        it("multiplies numbers", function() {
+            const underTest1 = new Sums.Operand(4);
+            const underTest2 = new Sums.Operand(6);
+
+            const result = underTest1.doArithmetic(Sums.Operator.Multiply, underTest2);
+
+            expect(result.toString()).toBe("24");
+        });
+
         it("warns about unsupported operator types", function() {
             const underTest1 = new Sums.Operand(4);
             const underTest2 = new Sums.Operand(6);

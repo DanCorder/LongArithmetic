@@ -216,4 +216,57 @@ describe("problemSetGenerator", function() {
             }
         });
     });
+
+    describe("generating times tables", function() {
+        it ("generates the correct number of sums", function() {
+            const underTest = new Sums.ProblemSetGenerator();
+
+            const sums = underTest.getTimesTablesSums([1], 10, Sums.Ordering.AscendingOperand1);
+
+            expect(sums.length).toBe(10);
+        });
+
+        it ("generates the multiplication sums", function() {
+            const underTest = new Sums.ProblemSetGenerator();
+
+            const sums = underTest.getTimesTablesSums([1], 10, Sums.Ordering.AscendingOperand1);
+
+            expect(sums.every(
+                function(value: Sums.Sum): boolean {
+                    return value.operator === Sums.Operator.Multiply; }
+                )).toBeTruthy();
+        });
+
+        it ("generates the correct sums for the three times table", function() {
+            const underTest = new Sums.ProblemSetGenerator();
+
+            const sums = underTest.getTimesTablesSums([3], 4, Sums.Ordering.AscendingOperand1);
+
+            expectContainsMultiplicationSum(sums, 1, 3);
+            expectContainsMultiplicationSum(sums, 2, 3);
+            expectContainsMultiplicationSum(sums, 3, 3);
+            expectContainsMultiplicationSum(sums, 4, 3);
+        });
+
+        it ("generates the correct sums for multiple times tables", function() {
+            const underTest = new Sums.ProblemSetGenerator();
+
+            const sums = underTest.getTimesTablesSums([3, 5, 8], 2, Sums.Ordering.AscendingOperand1);
+
+            expectContainsMultiplicationSum(sums, 1, 3);
+            expectContainsMultiplicationSum(sums, 2, 3);
+            expectContainsMultiplicationSum(sums, 1, 5);
+            expectContainsMultiplicationSum(sums, 2, 5);
+            expectContainsMultiplicationSum(sums, 1, 8);
+            expectContainsMultiplicationSum(sums, 2, 8);
+        });
+
+        function expectContainsMultiplicationSum(sums: Sums.Sum[], operand1: number, operand2: number) {
+            expect(sums).toContain(
+                new Sums.Sum(Sums.Operator.Multiply,
+                             new Sums.Operand(operand1),
+                             new Sums.Operand(operand2)));
+        }
+    });
 });
+

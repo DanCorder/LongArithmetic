@@ -19,6 +19,9 @@
             <input class="tab-control" id="tab3" type="radio" name="tabs" />
             <label class="tab" for="tab3">Single Column Subtractions</label>
 
+            <input class="tab-control" id="tab4" type="radio" name="tabs" />
+            <label class="tab" for="tab4">Times Tables</label>
+
             <div class="content">
                 <div id="content1" class="tab-content">
                     <p>Generate random sums of any length</p>
@@ -44,6 +47,23 @@
                     <ul>
                         <li><label for="sum-ordering">Ordering:</label><select id="sum-ordering" data-bind="value: ordering, options: allowedOrderings, optionsText: function(item) { return Sums.orderingToText(item); }"></select></li>
                         <li><button title="Generate Sums" onclick="viewModel.generateSingleColumnSubtractions();" >Generate Sums</button></li>
+                    </ul>
+                </div>
+                <div id="content4" class="tab-content">
+                    <p>Generate times tables</p>
+                    <ul>
+                        <li><label for="sum-ordering">Ordering:</label><select id="sum-ordering" data-bind="value: ordering, options: allowedTimesTableOrderings, optionsText: function(item) { return Sums.orderingToText(item); }"></select></li>
+                        <li><label for="ones-table">Ones:</label><input id="ones-table" type="checkbox" value="1" data-bind="checked: timesTables" /></li>
+                        <li><label for="twos-table">Twos:</label><input id="twos-table" type="checkbox" value="2" data-bind="checked: timesTables" /></li>
+                        <li><label for="threes-table">Threes:</label><input id="threes-table" type="checkbox" value="3" data-bind="checked: timesTables" /></li>
+                        <li><label for="fours-table">Fours:</label><input id="fours-table" type="checkbox" value="4" data-bind="checked: timesTables" /></li>
+                        <li><label for="fives-table">Fives:</label><input id="fives-table" type="checkbox" value="5" data-bind="checked: timesTables" /></li>
+                        <li><label for="sixes-table">Sixes:</label><input id="sixes-table" type="checkbox" value="6" data-bind="checked: timesTables" /></li>
+                        <li><label for="sevens-table">Sevens:</label><input id="sevens-table" type="checkbox" value="7" data-bind="checked: timesTables" /></li>
+                        <li><label for="eights-table">Eights:</label><input id="eights-table" type="checkbox" value="8" data-bind="checked: timesTables" /></li>
+                        <li><label for="nines-table">Nines:</label><input id="nines-table" type="checkbox" value="9" data-bind="checked: timesTables" /></li>
+                        <li><label for="tens-table">Tens:</label><input id="tens-table" type="checkbox" value="10" data-bind="checked: timesTables" /></li>
+                        <li><button title="Generate Sums" onclick="viewModel.generateTimesTableSums();" >Generate Sums</button></li>
                     </ul>
                 </div>
                 <div>
