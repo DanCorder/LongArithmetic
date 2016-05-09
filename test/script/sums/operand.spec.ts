@@ -153,5 +153,14 @@ describe("operand", function() {
 
             expect(result.toString()).toBe("-2");
         });
+
+        it("warns about unsupported operator types", function() {
+            const underTest1 = new Sums.Operand(4);
+            const underTest2 = new Sums.Operand(6);
+
+            expect(function() {
+                underTest1.doArithmetic(Sums.Operator.Divide, underTest2);
+            }).toThrow("Unsupported operator: /");
+        });
     });
 });

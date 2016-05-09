@@ -48,6 +48,8 @@ namespace Sums {
                 case Operator.Subtract:
                     resultValue = value.subtract(otherValue);
                     break;
+                default:
+                    throw "Unsupported operator: " + operatorToSymbol(operator);
             }
 
             const result = new Operand();
