@@ -11,7 +11,7 @@ namespace ViewModels {
 
         public sumType = ko.observable<Sums.Operator>(Sums.Operator.Add);
         public allowedSumTypes = ko.observableArray<Sums.Operator>([ Sums.Operator.Add, Sums.Operator.Subtract ]);
-        public ordering = ko.observable<Sums.Ordering>(Sums.Ordering.AscendingOperand1);
+        public ordering = ko.observable<Sums.Ordering>(Sums.Ordering.Random);
         public allowedOrderings = ko.observableArray<Sums.Ordering>([Sums.Ordering.AscendingOperand1,
                                                                      Sums.Ordering.DescendingOperand1,
                                                                      Sums.Ordering.Random]);

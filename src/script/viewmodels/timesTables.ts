@@ -9,7 +9,7 @@ namespace ViewModels {
 
         public sums = ko.observableArray<Sums.RandomSum>();
 
-        public tables = ko.observableArray<number>([]);
+        public tables = ko.observableArray<string>(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]);
         public ordering = ko.observable<Sums.Ordering>(Sums.Ordering.AscendingOperand2);
         public allowedOrderings = ko.observableArray<Sums.Ordering>([Sums.Ordering.AscendingOperand2,
                                                                      Sums.Ordering.DescendingOperand2,
@@ -17,7 +17,9 @@ namespace ViewModels {
         public showSolutions = ko.observable<boolean>(false);
 
         public generateSums() {
-            this.sums(this.problemSetGenerator.getTimesTablesSums(this.tables(), 10, this.ordering()));
+            const tableNumbers: number[] = [];
+            this.tables().forEach(str => tableNumbers.push(+str));
+            this.sums(this.problemSetGenerator.getTimesTablesSums(tableNumbers, 10, this.ordering()));
         }
     }
 }
